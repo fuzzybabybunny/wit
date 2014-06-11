@@ -1,0 +1,137 @@
+if (Venues.find().count() === 0) {
+
+  Venues.insert({
+    name: 'The Globe',
+    slug_name: 'the-globe',
+    slug_location: 'soho',
+    location: {
+      address: '1 Soho Street',
+      city: 'Hong Kong Island',
+      location: 'Soho',
+      country: 'Hong Kong'
+    },
+    contact: {
+      phone: '(555) 555-5555',
+      url: 'http://www.theglobe.com',
+      email: 'bar@theglobe.com',
+      manager: 'John Doe'
+    },
+    profile: {
+      description: 'The largest selection of craft beers in HK.',
+      has_food: true,
+      has_bar: true
+    },
+    stats: {
+      followers: 0
+    },
+    created_at: new Date
+  });
+
+  Venues.insert({
+    name: 'The Hong Kong Brewhouse',
+    slug_name: 'hk-brewhouse',
+    slug_location: 'soho',
+    location: {
+      address: '1 Soho Street',
+      city: 'Hong Kong Island',
+      location: 'Soho',
+      country: 'Hong Kong'
+    },
+    contact: {
+      phone: '(555) 555-5555',
+      url: 'http://www.theglobe.com',
+      email: 'bar@theglobe.com',
+      manager: 'John Doe'
+    },
+    profile: {
+      description: 'The largest selection of craft beers in HK.',
+      has_food: true,
+      has_bar: true
+    },
+    stats: {
+      followers: 0
+    },
+    created_at: new Date
+  });
+
+  Venues.insert({
+    name: 'La Piola',
+    slug_name: 'la-piola',
+    slug_location: 'soho',
+    location: {
+      address: '1 Soho Street',
+      city: 'Hong Kong Island',
+      location: 'Soho',
+      country: 'Hong Kong'
+    },
+    contact: {
+      phone: '(555) 555-5555',
+      url: 'http://www.theglobe.com',
+      email: 'bar@theglobe.com',
+      manager: 'John Doe'
+    },
+    profile: {
+      description: 'The largest selection of craft beers in HK.',
+      has_food: true,
+      has_bar: true
+    },
+    stats: {
+      followers: 0
+    },
+    created_at: new Date
+  });
+
+  Venues.insert({
+    name: 'Posto Publico',
+    slug_name: 'posto-publico',
+    slug_location: 'soho',
+    location: {
+      address: '1 Soho Street',
+      city: 'Hong Kong Island',
+      location: 'Soho',
+      country: 'Hong Kong'
+    },
+    contact: {
+      phone: '(555) 555-5555',
+      url: 'http://www.theglobe.com',
+      email: 'bar@theglobe.com',
+      manager: 'John Doe'
+    },
+    profile: {
+      description: 'The largest selection of craft beers in HK.',
+      has_food: true,
+      has_bar: true
+    },
+    stats: {
+      followers: 0
+    },
+    created_at: new Date
+  });
+
+  Venues.insert({
+    name: 'Vissa',
+    slug_name: 'vissa',
+    slug_location: 'kowloon',
+    location: {
+      address: '1 Soho Street',
+      city: 'Tai Kok Tsui',
+      location: 'Kowloon',
+      country: 'Hong Kong'
+    },
+    contact: {
+      phone: '(555) 555-5555',
+      url: 'http://www.theglobe.com',
+      email: 'bar@theglobe.com',
+      manager: 'John Doe'
+    },
+    profile: {
+      description: 'The largest selection of craft beers in HK.',
+      has_food: true,
+      has_bar: true
+    },
+    stats: {
+      followers: 0
+    },
+    created_at: new Date
+  });
+}

@@ -1,0 +1,14 @@
+<template name="AccountButtons">
+  {{#if currentUser}}
+    <a href="{{pathFor 'entrySignOut'}}">
+      <button class="btn btn-primary">Sign Out</button>
+    </a>
+  {{else}}
+    <a href="{{pathFor 'entrySignIn'}}">
+      <button class="btn btn-primary">Sign In</button>
+    </a>
+    <a href="{{pathFor 'entrySignUp'}}">
+      <button class="btn btn-success">Sign Up</button>
+    </a>
+  {{/if}}
+</template>

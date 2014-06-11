@@ -1,0 +1,29 @@
+<template name="VenueDetail">
+
+  {{#contentFor region="breadcrumbs"}}
+    <ol class="breadcrumb text-center">
+      <li>
+        <a href="{{pathFor 'home'}}">Home</a>
+      </li>
+      <li>
+        <a href="{{pathFor 'areas.index'}}">Areas</a>
+      </li>
+      <li>
+        <a href="{{pathFor 'area'}}">{{location.location}}</a>
+      </li>
+      <li class="active">
+        {{venue_name}}
+      </li>
+    </ol>
+  {{/contentFor}}
+
+<h3>{{venue_name}}</h3>
+<address>
+  <strong>{{venue_name}}</strong><br>
+  {{location.address}}<br>
+  {{location.location}}, {{location.city}}<br>
+  <abbr title="Phone">P:</abbr> {{contact.phone}}
+</address>
+
+
+</template>

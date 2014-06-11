@@ -1,0 +1,32 @@
+<template name="VenuesIndex">
+  <div class="venues-index">
+    {{> CreateVenueItem}}
+
+    <div class="row">
+      <ul class="venue-list">
+        {{#each venues}}
+          <li class="venue-item {{isRemovedClass}}">{{> VenueItem}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+</template>
+
+
+<template name="VenueItem">
+  <div class="remove">
+    <input type="checkbox" name="is_remove" {{isRemoveChecked}}/>
+  </div>
+  <div class="venue">
+    <a href="{{pathFor 'venue.detail'}}">{{venue_name}}</a>
+  </div>
+</template>
+
+<template name="CreateVenueItem">
+  <div class="row">
+    <form class="create-venue">
+      <input type="text" class="input-box-lg" placeholder="Create new venue" data-toggle="tooltip" data-placement="top" title="Enter a new Venue">
+    </form>
+  </div>
+</template>

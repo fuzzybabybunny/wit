@@ -1,0 +1,60 @@
+/*****************************************************************************/
+/* VenuesIndex: Style */
+/*****************************************************************************/
+
+.box-sizing(@value) {
+  box-sizing: @value;
+  -webkit-box-sizing: @value;
+  -moz-box-sizing: @value;
+}
+
+.border-radius(@value) {
+  border-radius: @value;
+  -webkit-border-radius: @value;
+  -moz-border-radius: @value;
+}
+
+.venue-list {
+  list-style: none;
+
+  margin: 0px;
+  padding: 0px;
+}
+
+.venue-item {
+  float: left;
+  padding: 10px 0px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+
+  &.remove {
+    .venue {
+      text-decoration: line-through;
+    }
+  }
+
+  .remove {
+    float: left;
+  }
+
+  .venue {
+    float: left;
+    padding-left: 20px;
+  }
+}
+
+.create-venue {
+  background: #fff;
+
+
+  .input-box-lg {
+    width: 100%;
+    .box-sizing(border-box);
+    .border-radius(6px);
+    padding: 30px;
+    padding-bottom: 30px;
+    font-size: 18pt;
+    height: 24pt;
+    line-height: 24pt;
+  }
+}

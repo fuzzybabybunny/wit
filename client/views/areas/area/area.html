@@ -1,0 +1,23 @@
+<template name="Area">
+  {{#contentFor region="breadcrumbs"}}
+    <ol class="breadcrumb text-center">
+      <li>
+        <a href="{{pathFor 'home'}}">Home</a>
+      </li>
+      <li>
+        <a href="{{pathFor 'areas.index'}}">Areas</a>
+      </li>
+      <li class="active">
+        {{location}}
+      </li>
+    </ol>
+  {{/contentFor}}
+  <div class="row">
+    <h4>{{location}}</h4>
+  </div>
+  <div class="row">
+    {{#each venues}}
+      <h4><a href="{{pathFor 'venue.detail' venues}}">{{venue_name}}</a></h4>
+    {{/each}}
+  </div>
+</template>
