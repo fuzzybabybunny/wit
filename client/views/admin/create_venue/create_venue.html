@@ -1,0 +1,7 @@
+<template name="CreateVenue">
+<h1>Create a new venue</h1>
+  {{> quickForm collection="Venues" id="CreateVenue" type="insert" omitFields="updated_at, created_at"}}
+
+  <button type="reset" class="btn btn-default docClear">Reset</button>
+
+</template>

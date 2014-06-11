@@ -1,9 +1,10 @@
 if (Venues.find().count() === 0) {
 
   Venues.insert({
-    venue_name: 'The Globe',
+    venue_name: 'The Globe222',
     slug_name: 'the-globe',
     slug_location: 'soho',
+    active: true,
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -19,11 +20,13 @@ if (Venues.find().count() === 0) {
     profile: {
       description: 'The largest selection of craft beers in HK.',
       has_food: true,
-      has_bar: true
+      has_bar: true,
+      mj_time: new Date
     },
     stats: {
       followers: 0
     },
+    updated_at: new Date,
     created_at: new Date
   });
 
@@ -31,6 +34,7 @@ if (Venues.find().count() === 0) {
     venue_name: 'The Hong Kong Brewhouse',
     slug_name: 'hk-brewhouse',
     slug_location: 'soho',
+    active: true,
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -46,11 +50,13 @@ if (Venues.find().count() === 0) {
     profile: {
       description: 'The largest selection of craft beers in HK.',
       has_food: true,
-      has_bar: true
+      has_bar: true,
+      mj_time: new Date
     },
     stats: {
       followers: 0
     },
+    updated_at: new Date,
     created_at: new Date
   });
 
@@ -58,6 +64,7 @@ if (Venues.find().count() === 0) {
     venue_name: 'La Piola',
     slug_name: 'la-piola',
     slug_location: 'soho',
+    active: true,
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -73,11 +80,13 @@ if (Venues.find().count() === 0) {
     profile: {
       description: 'The largest selection of craft beers in HK.',
       has_food: true,
-      has_bar: true
+      has_bar: true,
+      mj_time: new Date
     },
     stats: {
       followers: 0
     },
+    updated_at: new Date,
     created_at: new Date
   });
 
@@ -85,6 +94,7 @@ if (Venues.find().count() === 0) {
     venue_name: 'Posto Publico',
     slug_name: 'posto-publico',
     slug_location: 'soho',
+    active: true,
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -100,11 +110,13 @@ if (Venues.find().count() === 0) {
     profile: {
       description: 'The largest selection of craft beers in HK.',
       has_food: true,
-      has_bar: true
+      has_bar: true,
+      mj_time: new Date
     },
     stats: {
       followers: 0
     },
+    updated_at: new Date,
     created_at: new Date
   });
 
@@ -112,6 +124,7 @@ if (Venues.find().count() === 0) {
     venue_name: 'Vissa',
     slug_name: 'vissa',
     slug_location: 'kowloon',
+    active: true,
     location: {
       address: '1 Soho Street',
       city: 'Tai Kok Tsui',
@@ -127,11 +140,13 @@ if (Venues.find().count() === 0) {
     profile: {
       description: 'The largest selection of craft beers in HK.',
       has_food: true,
-      has_bar: true
+      has_bar: true,
+      mj_time: new Date
     },
     stats: {
       followers: 0
     },
+    updated_at: new Date,
     created_at: new Date
   });
 

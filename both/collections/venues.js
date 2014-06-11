@@ -7,15 +7,14 @@ Venues = new Meteor.Collection('venues', {
     },
     slug_name: {
       type: String,
-      label: "Friendly url name",
+      label: "Friendly name for URL",
       max: 20
     },
     slug_location: {
       type: String,
-      label: "Friendly url location",
+      label: "Friendly location for URL",
       max: 20
     },
-
       "location.address": {
         type: String,
         label: "Street address",
@@ -25,39 +24,46 @@ Venues = new Meteor.Collection('venues', {
       "location.city": {
         type: String,
         label: "City",
-        max: 300
+        max: 50
       },
       "location.location": {
         type: String,
         label: "Area",
-        max: 300
+        max: 50
       },
       "location.country": {
         type: String,
         label: "Country",
-        max: 300
+        max: 50,
+        optional: true
       },
 
       "contact.phone": {
         type: String,
         label: "Phone",
-        max: 300
+        max: 20,
+        optional: true
       },
       "contact.url": {
         type: String,
+        regEx: SimpleSchema.RegEx.Url,
         label: "Url",
-        max: 300
+        max: 50,
+        optional: true
       },
       "contact.email": {
         type: String,
+        regEx: SimpleSchema.RegEx.Email,
         label: "Email",
-        max: 300
+        max: 50,
+        optional: true
       },
 
       "contact.manager": {
         type: String,
         label: "Manager's name",
-        max: 300
+        max: 50,
+        optional: true
       },
 
       "profile.description": {
@@ -78,17 +84,37 @@ Venues = new Meteor.Collection('venues', {
       },
 
       "stats.followers": {
-        type: String,
+        type: Number,
         label: "Followers",
-        max: 300
+        max: 6,
+        defaultValue: 0
       },
 
+    updated_at: {
+      type: Date,
+      label: 'Updated at',
+      autoValue: function(){
+          return new Date(); //moment().toString();
+      }
+    },
     created_at: {
       type: Date,
-      label: 'Created at'
+      label: 'Created at',
+      autoValue: function(){
+        if(this.isInsert){
+          return new Date();
+        }
+      },
     }
+
   })
 });
+
+Venues.simpleSchema().messages({
+  'regEx contact.email': "[label] is not a valid e-mail address",
+  'regEx contact.url': "[label] is not a valid URL",
+})
+
 
 /*
  * Add query methods like this:

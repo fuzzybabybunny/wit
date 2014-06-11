@@ -5,8 +5,8 @@
       <tr>
         <th>Name</th>
         <th>Location</th>
-        <th>Created At</th>
-        <th>Users Following</th>
+        <th>Created</th>
+        <th>Updated</th>
         <th>Comments</th>
       </tr>
     </thead>
@@ -16,7 +16,7 @@
           <td><a href="{{pathFor 'edit.venue'}}">{{venue_name}}</a></td>
           <td>{{location.location}}</td>
           <td>{{created_at_formatted}}</td>
-          <td>{{stats.followers}}</td>
+          <td>{{updated_at_formatted}}</td>
           <td></td>
         </tr>
       {{/each}}

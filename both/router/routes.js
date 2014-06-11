@@ -69,6 +69,12 @@ Router.map(function () {
     template: 'EditVenue'
   });
 
+//////////////////////////////////////////////////////////////
+//
+//                      ADMIN ROUTES
+//
+//////////////////////////////////////////////////////////////
+
   this.route('admin', {
     path: '/admin',
     template: 'Admin'
@@ -79,6 +85,9 @@ Router.map(function () {
     template: 'ManageVenues'
   });
 
-
+  this.route('create.venue', {
+    path: '/admin/venue/create',
+    template: 'CreateVenue'
+  });
 });
 

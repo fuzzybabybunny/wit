@@ -3,16 +3,22 @@
 /*****************************************************************************/
 Template.CreateVenue.events({
   /*
-   * Example: 
+   * Example:
    *  'click .selector': function (e, tmpl) {
    *
    *  }
    */
+  'click .docClear': function(e, t) {
+      e.preventDefault();
+      console.log('reset clicked');
+      AutoForm.resetForm("quickForm");
+      Session.set("selectedDoc", null);
+    }
 });
 
 Template.CreateVenue.helpers({
   /*
-   * Example: 
+   * Example:
    *  items: function () {
    *    return Items.find();
    *  }
