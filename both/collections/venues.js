@@ -19,7 +19,7 @@ Venues = new Meteor.Collection('venues', {
       "location.address": {
         type: String,
         label: "Street address",
-        max: 300
+        max: 100
       },
 
       "location.city": {
