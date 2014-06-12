@@ -7,7 +7,8 @@
       "font-awesome-4-less": {},
       "accounts-entry": {},
       "roles": {},
-      "autoform": {}
+      "autoform": {},
+      "noty": {}
     },
     "packages": {
       "iron-router": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/aldeed/meteor-autoform.git",
         "tag": "v0.11.0",
         "commit": "efdffcdf836a45c50c39696ede15399177ccb9fa"
+      },
+      "noty": {
+        "git": "https://github.com/tabruhn/meteor-noty.git",
+        "tag": "v2.2.0",
+        "commit": "4edbe6e35a5707add16367d338c1bf53222e6163"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

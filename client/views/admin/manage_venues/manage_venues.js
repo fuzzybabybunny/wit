@@ -1,6 +1,16 @@
 /*****************************************************************************/
 /* ManageVenues: Event Handlers and Helpers */
 /*****************************************************************************/
+
+getInvites = function(venue){
+    //console.log('venues : ' + venue.venue_name)
+    return Invitations.find({
+      'venue_id': venue._id
+    });
+};
+
+
+
 Template.ManageVenues.events({
   /*
    * Example:
@@ -24,6 +34,17 @@ Template.ManageVenues.helpers({
           }
       });
     },
+
+  invites: function(){
+    return Invitations.find({
+      'venue_id': this._id
+    });
+  },
+
+  invites_count: function(){
+    //console.log('count from object: ' + getInvites.count());
+    return getInvites(this).count();
+  },
 
   created_at_formatted: function(){
     var now = moment(this.created_at).format("Do MMM");

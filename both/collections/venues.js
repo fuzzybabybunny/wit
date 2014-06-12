@@ -18,13 +18,15 @@ Venues = new Meteor.Collection('venues', {
       "location.address": {
         type: String,
         label: "Street address",
-        max: 100
+        max: 100,
+        optional: true
       },
 
       "location.city": {
         type: String,
         label: "City",
-        max: 50
+        max: 50,
+        optional: true
       },
       "location.location": {
         type: String,
@@ -113,7 +115,7 @@ Venues = new Meteor.Collection('venues', {
 Venues.simpleSchema().messages({
   'regEx contact.email': "[label] is not a valid e-mail address",
   'regEx contact.url': "[label] is not a valid URL",
-})
+});
 
 
 /*
