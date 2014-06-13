@@ -21,14 +21,15 @@ Template.ViewInvitations.events({
 
    'click .edit': function(e, tmpl){
       e.preventDefault;
-      // console.log('this.field: returns: ' + this.title.full);
-      // console.log('tmpl.data.field returns: ' + tmpl.data.contact.email);
+      console.log('this.field: returns: ' + this.title.full);
+      console.log('tmpl.data.field returns: ' + tmpl.data.contact.email);
       // console.log($(this));
       // console.log(this);
       // console.log(e.currentTarget);
       // console.log($(e.currentTarget));
 
       id = this._id
+      console.log('id: ' + id);
       //$('#'+id).addClass('show');
       $('.resetAll').hide();
       $('#'+id).show();
@@ -50,9 +51,22 @@ Template.ViewInvitations.helpers({
     return Venues.findOne({'_id': this._id});
    },
 
+   // invitations: function(){
+   //  //console.log('invitations->venue_id: ' + this._id);
+   //  return getInvite(this._id);
+   // },
    invitations: function(){
-    //console.log('invitations->venue_id: ' + this._id);
-    return getInvite(this._id);
+    return Invitations.find({'venue_id': this._id}).map(function(invitation, index){
+      invitation.rank = index + 1;
+      return invitation;
+    })
+   },
+   rankOrder: function(){
+      if (this.active == true){
+        return 'valid';
+      } else{
+        return 'inactive';
+      }
    }
 });
 

@@ -8,20 +8,41 @@
 <div class="container">
 
 <div class="manage-invites">
-  <button type="button" class="insert btn btn-default" href="#">Create Invite</button>
   <button type="button" class="resetAllBtn btn btn-default" href="#">Hide All</button>
-  <span id="insertForm" class="resetAll" style="display: none">
+  <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
+  Create new invitation
+</button>
+<!--  <span id="insertForm" class="resetAll" style="display: none">
     {{> CreateInvitation}}
   </span>
+  -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create new invitation for {{this.venue_name}}</h4>
+      </div>
+      <div class="modal-body">
+       {{> CreateInvitation}}
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 {{#each invitations}}
 
 <div class="invite-summary">
-  <h4>{{title.full}}</h4>
-  <div class="modify-invite">
-    <button href="#" class="edit modBtn btn btn-link btn-xs">edit</button>
-    {{#afDeleteButton class="modBtn" collection="Invitations" doc=editingDoc}}remove{{/afDeleteButton}}
+  <div class="invite-order {{rankOrder}}">
+    #{{this.rank}}
+  </div>
+  <div class="invite-details">
+    <h4>{{title.full}}</h4>
+    <div class="modify-invite">
+      <button href="#" class="edit modBtn btn btn-link btn-xs">edit</button>
+      {{#afDeleteButton class="modBtn" collection="Invitations" doc=editingDoc}}remove{{/afDeleteButton}}
+    </div>
   </div>
 </div>
 

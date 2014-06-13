@@ -20,16 +20,39 @@
 <div class="page-intro">
   <div class="container">
     <h1 class="page-head">{{venue_name}}</h1>
-    <p>{{profile.description}}</p>
+    <p>{{profile.tag}}</p>
   </div>
 </div>
 
 <div class="container">
-  <address>
-    <strong>{{venue_name}}</strong><br>
-    {{location.address}}<br>
-    {{location.location}}, {{location.city}}<br>
-    <abbr title="Phone">P:</abbr> {{contact.phone}}
-  </address>
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="description">
+        <h4>{{profile.description}}</h4>
+      </div>
+    </div>
+    <div class="col-sm-3.col-sm-offset-3">
+      <address>
+        <strong>{{venue_name}}</strong><br>
+        {{location.address}}<br>
+        {{location.location}}, {{location.city}}<br>
+        <abbr title="Phone">P:</abbr> {{contact.phone}}
+      </address>
+    </div>
+  </div>
+
+{{#each invitations}}
+
+<div class="invite-summary">
+  <div class="invite-order {{rankOrder}}">
+    #{{this.rank}}
+  </div>
+  <div class="invite-details">
+    <h4>{{title.full}}</h4>
+    <p>view more</p>
+  </div>
+</div>
+{{/each}}
+
 </div>
 </template>

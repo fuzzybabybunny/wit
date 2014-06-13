@@ -68,10 +68,16 @@ Venues = new Meteor.Collection('venues', {
         optional: true
       },
 
+      "profile.tag": {
+        type: String,
+        label: "Brief description",
+        max: 100,
+        optional: true
+      },
       "profile.description": {
         type: String,
-        label: "Description",
-        max: 300,
+        label: "Fullsome description",
+        max: 500,
         optional: true
       },
       "profile.has_food": {

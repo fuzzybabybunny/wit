@@ -7,6 +7,8 @@ ViewInvitationsController = RouteController.extend({
   },
 
   data: function () {
+    //Session.set('inviteCount', 0);
+
     return Venues.findOne({
       _id: this.params._id
     });

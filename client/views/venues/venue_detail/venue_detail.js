@@ -3,7 +3,7 @@
 /*****************************************************************************/
 Template.VenueDetail.events({
   /*
-   * Example: 
+   * Example:
    *  'click .selector': function (e, tmpl) {
    *
    *  }
@@ -12,11 +12,24 @@ Template.VenueDetail.events({
 
 Template.VenueDetail.helpers({
   /*
-   * Example: 
+   * Example:
    *  items: function () {
    *    return Items.find();
    *  }
    */
+   invitations: function(){
+    return Invitations.find({'venue_id': this._id}).map(function(invitation, index){
+      invitation.rank = index + 1;
+      return invitation;
+    })
+   },
+   rankOrder: function(){
+      if (this.active == true){
+        return 'active';
+      } else{
+        return 'inactive';
+      }
+   }
 });
 
 /*****************************************************************************/
