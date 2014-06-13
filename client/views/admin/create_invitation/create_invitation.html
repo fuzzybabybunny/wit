@@ -1,0 +1,42 @@
+<template name="CreateInvitation">
+<div class="insert-form">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Invite: {{title.full}}</h3>
+    </div>
+      {{#autoForm id="invitesInsertForm" type="insert" collection="Invitations"}}
+        <div class="panel-body">
+            {{> afQuickField name='title.full' style="color: orange" label-style="color: grey" class="input-lg"}}
+            {{> afQuickField name='title.brief' style="color: orange" label-style="color: grey" class="input-lg"}}
+            {{> afQuickField name="description" rows="5"}}
+            {{> afQuickField name="active" radio="true" trueLabel="Yes" falseLabel="No"}}
+
+
+            {{> afQuickField name="venue_id" value=_id}}
+            {{> afQuickField name="venue_name" value=venue_name}}
+            {{> afQuickField name="slug_name" value=slug_name}}
+            {{> afQuickField name="slug_location" value=slug_location}}
+            {{> afQuickField name="quota" value=-1}}
+            {{> afQuickField name="valid.startDate" value=getToday}}
+            {{> afQuickField name="valid.endDate" value=getToday}}
+
+            {{> afQuickField name="valid.days.mon" value=true}}
+            {{> afQuickField name="valid.days.tue" value=true}}
+            {{> afQuickField name="valid.days.wed" value=true}}
+            {{> afQuickField name="valid.days.thu" value=true}}
+            {{> afQuickField name="valid.days.fri" value=true}}
+            {{> afQuickField name="valid.days.sat" value=true}}
+            {{> afQuickField name="valid.days.sun" value=true}}
+
+            {{> afQuickField name="valid.timeFrom" value=getToday}}
+            {{> afQuickField name="valid.timeTo" value=getToday}}
+
+
+        </div>
+        <div class="panel-footer">
+          <button type="submit" class="btn btn-primary">Create Invitation</button>
+        </div>
+    {{/autoForm}}
+  </div>
+</div>
+</template>

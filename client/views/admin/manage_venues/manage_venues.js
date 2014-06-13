@@ -3,7 +3,7 @@
 /*****************************************************************************/
 
 getInvites = function(venue){
-    //console.log('venues : ' + venue.venue_name)
+    console.log('venues : ' + venue.venue_name)
     return Invitations.find({
       'venue_id': venue._id
     });
@@ -42,7 +42,7 @@ Template.ManageVenues.helpers({
   },
 
   invites_count: function(){
-    //console.log('count from object: ' + getInvites.count());
+    console.log('count from object: ' + getInvites(this).count());
     return getInvites(this).count();
   },
 

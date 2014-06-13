@@ -14,6 +14,18 @@ body {
   padding-bottom: 100px;
 }
 
+.navbar-static-top {
+  margin: 0px;
+  padding: 0px;
+}
+
+#navbar-header {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  margin: 0 0 0px;
+
+}
+
 #footer {
   position: absolute;
   bottom: 0;
@@ -27,7 +39,7 @@ body {
   margin: 20px 0;
 }
 
-.breadcrumb {
+.no-pad > .breadcrumb {
   margin: 0px;
 }
 
@@ -37,4 +49,56 @@ body {
 
 .main-content{
   margin-top: 20px;
+}
+
+.no-pad > .breadcrumb {
+  background-color: #37253C;
+  border-radius: 0px;
+
+  a {
+    color: #F2F2F2;
+    link: #F2F2F2;
+    visited: #F2F2F2;
+    active: #F2F2F2;
+    hover: #F2F2F2;
+  }
+
+}
+.navbar-inverse{
+  border-color: #222222;
+}
+
+
+.page-intro {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 40px;
+  position: relative;
+  padding: 30px 15px;
+  color: #cdbfe3;
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  background-color: #6f5499;
+  background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+  background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+  background-repeat: repeat-x;
+  box-sizing: border-box;
+  over-flow: none;
+}
+
+.page-intro h1{
+  font-size: 60px;
+  line-height: 1;
+  margin-top: 0;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.page-intro p {
+  margin-bottom: 10px;
+  font-weight: 300;
+  line-height: 1.4;
+  padding-bottom: 10px;
 }

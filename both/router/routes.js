@@ -30,7 +30,8 @@ Router.onBeforeAction(function(){});
 Router.onAfterAction(function(){});
 Router.onStop(function(){}); //when the route in unloading (i.e. reset session state before user navigates away)
 
-Router.onBeforeAction('loading', {only:['areas.index']});
+Router.onBeforeAction('loading');
+// Router.onBeforeAction('loading', {only:['areas.index']});
 //Router.onBeforeAction('dataNotFound');
 
 
@@ -88,6 +89,11 @@ Router.map(function () {
   this.route('create.venue', {
     path: '/admin/venue/create',
     template: 'CreateVenue'
+  });
+
+  this.route('view.invitations', {
+    path: '/admin/invitations/:_id',
+    template: 'ViewInvitations'
   });
 });
 

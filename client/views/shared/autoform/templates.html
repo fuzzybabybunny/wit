@@ -1,0 +1,8 @@
+<template name="afDeleteButton_quickForm_nothing">
+  {{#autoForm collection=this.collection type="remove" doc=this.doc}}
+    <button type="submit" class="btn btn-link btn-xs" {{atts}}>
+      {{#if ../contentBlock}}{{> ../contentBlock}}
+      {{else}}remove{{/if}}
+    </button>
+  {{/autoForm}}
+</template>

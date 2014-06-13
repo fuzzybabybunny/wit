@@ -22,34 +22,47 @@ Invitations = new Meteor.Collection('invitations', {
     },
     active: {
       type: Boolean,
-      label: "Is the offer currently active?"
+      label: "Is the offer currently active?",
+      optional: true
     },
     quota: {
       type: Number,
-      label: "Number of invites allowed (-1 for unlimited)"
+      label: "Number of invites allowed (-1 for unlimited)",
+      optional: true
     },
     "title.brief": {
       type: String,
       label: "Brief invitation title",
-      max: 35
+      max: 35,
+      optional: true
     },
     "title.full": {
       type: String,
       label: "Full title of the invitation",
-      max: 100
+      max: 100,
+      optional: true
     },
     description: {
       type: String,
       label: "Description of the invitation",
-      max: 300
+      max: 300,
+      optional: true
+    },
+    invite_type: {
+      type: String,
+      label: "Invitation type [ public, exclusive, private ]",
+      max: 20,
+      optional: true
     },
       "valid.startDate": {
         type: Date,
-        label: "Date the invite is valid from"
+        label: "Date the invite is valid from",
+        optional: true
       },
       "valid.endDate": {
         type: Date,
-        label: "Date the invite ends (can be an estimate)"
+        label: "Date the invite ends (can be an estimate)",
+        optional: true
       },
         "valid.days.mon": {
           type: Boolean,
@@ -88,11 +101,13 @@ Invitations = new Meteor.Collection('invitations', {
         },
       "valid.timeFrom": {
         type: Date,
-        label: "Time during the day the invite is valid from"
+        label: "Time during the day the invite is valid from",
+        optional: true
       },
       "valid.timeTo": {
         type: Date,
-        label: "Time when offer expires during the day"
+        label: "Time when offer expires during the day",
+        optional: true
       },
 
     updated_at: {

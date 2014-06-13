@@ -1,0 +1,51 @@
+<template name="ViewInvitations">
+<div class="page-intro">
+  <div class="container">
+    <h1 class="page-head">{{this.venue_name}}</h1>
+    <p>Invitation manager. Add, edit and remove invitations for a Venue.</p>
+  </div>
+</div>
+<div class="container">
+
+<div class="manage-invites">
+  <button type="button" class="insert btn btn-default" href="#">Create Invite</button>
+  <button type="button" class="resetAllBtn btn btn-default" href="#">Hide All</button>
+  <span id="insertForm" class="resetAll" style="display: none">
+    {{> CreateInvitation}}
+  </span>
+</div>
+
+{{#each invitations}}
+
+<div class="invite-summary">
+  <h4>{{title.full}}</h4>
+  <div class="modify-invite">
+    <button href="#" class="edit modBtn btn btn-link btn-xs">edit</button>
+    {{#afDeleteButton class="modBtn" collection="Invitations" doc=editingDoc}}remove{{/afDeleteButton}}
+  </div>
+</div>
+
+  <div class="edit-form resetAll" id="{{_id}}" style="display: none">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Invite: {{title.full}}</h3>
+    </div>
+      {{#autoForm id="invitesEditForm" type="update" collection="Invitations" doc=editingDoc}}
+        <div class="panel-body">
+            {{> afQuickField name='title.full' style="color: orange" label-style="color: grey" class="input-lg"}}
+            {{> afQuickField name='title.brief' style="color: orange" label-style="color: grey" class="input-lg"}}
+            {{> afQuickField name="description" rows="5"}}
+            {{> afQuickField name="active" radio="true" trueLabel="Yes" falseLabel="No"}}
+        </div>
+        <div class="panel-footer">
+          <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+    {{/autoForm}}
+  </div>
+  </div>
+
+{{/each}}
+
+</div>
+
+</template>

@@ -202,12 +202,13 @@ if (Invitations.find().count() === 0) {
       slug_name: venue.slug_name,
       slug_location: venue.slug_location,
       active: true,
-      quota: '100',
+      quota: '-1',
       title: {
         brief: 'Free beer',
         full: 'Get a free beer at 2pm today'
       },
       description: 'Enjoy a Peroni on the house at [name]',
+      invite_type: 'public',
       valid: {
         startDate: new Date(),
         endDate: new Date(moment({M: 11})),

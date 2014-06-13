@@ -1,6 +1,6 @@
 <template name="VenueDetail">
-
   {{#contentFor region="breadcrumbs"}}
+  <div class="no-pad">
     <ol class="breadcrumb text-center">
       <li>
         <a href="{{pathFor 'home'}}">Home</a>
@@ -15,15 +15,21 @@
         {{venue_name}}
       </li>
     </ol>
+  </div>
   {{/contentFor}}
+<div class="page-intro">
+  <div class="container">
+    <h1 class="page-head">{{venue_name}}</h1>
+    <p>{{profile.description}}</p>
+  </div>
+</div>
 
-<h3>{{venue_name}}</h3>
-<address>
-  <strong>{{venue_name}}</strong><br>
-  {{location.address}}<br>
-  {{location.location}}, {{location.city}}<br>
-  <abbr title="Phone">P:</abbr> {{contact.phone}}
-</address>
-
-
+<div class="container">
+  <address>
+    <strong>{{venue_name}}</strong><br>
+    {{location.address}}<br>
+    {{location.location}}, {{location.city}}<br>
+    <abbr title="Phone">P:</abbr> {{contact.phone}}
+  </address>
+</div>
 </template>

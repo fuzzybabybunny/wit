@@ -1,0 +1,43 @@
+<template name="HeaderLayout">
+    <div class="navbar navbar-default navbar-static-top" id="navbar-header" role="navigation">
+      <div class="container">
+        <div class="pull-right account-buttons">
+        {{> AccountButtons}}
+        </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{pathFor 'home'}}">walkin.to</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{pathFor 'home'}}">Home</a></li>
+            <li><a href="{{pathFor 'areas.index'}}">Areas</a></li>
+            <li><a href="{{pathFor 'venues.index'}}">Venues</a></li>
+
+            {{#if currentUser}}
+              <li class="dropdown">
+                <a href="{{pathFor 'admin'}}" class="dropdown-toggle" data-toggle="dropdown">
+                  Admin
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{pathFor 'manage.venues'}}">Manage venues</a></li>
+                  <li><a href="#">View users</a></li>
+                  <li><a href="#">Track invites</a></li>
+                  <li class="divider"></li>
+                  <li><a href="{{pathFor 'create.venue'}}">Add venue</a></li>
+                  <li class="divider"></li>
+                  <li><a href="{{pathFor 'admin'}}">Dashboard</a></li>
+                </ul>
+              </li>
+            {{/if}}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+</template>

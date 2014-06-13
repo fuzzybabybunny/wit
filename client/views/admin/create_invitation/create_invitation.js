@@ -1,7 +1,7 @@
 /*****************************************************************************/
-/* Home: Event Handlers and Helpers */
+/* CreateInvitation: Event Handlers and Helpers */
 /*****************************************************************************/
-Template.Home.events({
+Template.CreateInvitation.events({
   /*
    * Example:
    *  'click .selector': function (e, tmpl) {
@@ -10,24 +10,26 @@ Template.Home.events({
    */
 });
 
-Template.Home.helpers({
+Template.CreateInvitation.helpers({
   /*
    * Example:
    *  items: function () {
    *    return Items.find();
    *  }
    */
+   getToday: function(){
+    return new Date();
+   }
 });
 
 /*****************************************************************************/
-/* Home: Lifecycle Hooks */
+/* CreateInvitation: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Home.created = function () {
+Template.CreateInvitation.created = function () {
 };
 
-Template.Home.rendered = function () {
+Template.CreateInvitation.rendered = function () {
 };
 
-Template.Home.destroyed = function () {
+Template.CreateInvitation.destroyed = function () {
 };
-
