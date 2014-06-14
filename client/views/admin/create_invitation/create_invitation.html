@@ -17,6 +17,12 @@
             {{> afQuickField name="slug_name" value=slug_name}}
             {{> afQuickField name="slug_location" value=slug_location}}
             {{> afQuickField name="quota" value=-1}}
+
+            {{> afFieldLabel name="invite_type"}}
+            {{> afFieldInput name="invite_type" radio=true options="allowed"}}
+            {{> afFieldLabel name="category"}}
+            {{> afFieldInput name="category" options="allowed"}}
+
             {{> afQuickField name="valid.startDate" value=getToday}}
             {{> afQuickField name="valid.endDate" value=getToday}}
 
@@ -28,9 +34,10 @@
             {{> afQuickField name="valid.days.sat" value=true}}
             {{> afQuickField name="valid.days.sun" value=true}}
 
-            {{> afQuickField name="valid.timeFrom" value=getToday}}
-            {{> afQuickField name="valid.timeTo" value=getToday}}
-
+            {{> afFieldLabel name="valid.timeFrom"}}
+            {{> afFieldInput name="valid.timeFrom" options=timeOptions}}
+            {{> afFieldLabel name="valid.timeTo"}}
+            {{> afFieldInput name="valid.timeTo" options=timeOptions}}
 
         </div>
         <div class="panel-footer">

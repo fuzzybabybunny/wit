@@ -50,9 +50,17 @@ Invitations = new Meteor.Collection('invitations', {
     },
     invite_type: {
       type: String,
-      label: "Invitation type [ public, exclusive, private ]",
+      label: "Invitation type",
       max: 20,
-      optional: true
+      optional: true,
+      allowedValues: ['public', 'exclusive', 'private']
+    },
+    category: {
+      type: String,
+      label: "Invite category",
+      max: 50,
+      optional: true,
+      allowedValues: ['happy hour', 'menu set', 'experience', 'reservation', 'event']
     },
       "valid.startDate": {
         type: Date,
@@ -100,12 +108,12 @@ Invitations = new Meteor.Collection('invitations', {
           optional: true
         },
       "valid.timeFrom": {
-        type: Date,
+        type: Number,
         label: "Time during the day the invite is valid from",
         optional: true
       },
       "valid.timeTo": {
-        type: Date,
+        type: Number,
         label: "Time when offer expires during the day",
         optional: true
       },

@@ -56,14 +56,14 @@ Template.ViewInvitations.helpers({
    //  return getInvite(this._id);
    // },
    invitations: function(){
-    return Invitations.find({'venue_id': this._id}).map(function(invitation, index){
+    return Invitations.find({'venue_id': this._id}, {sort:{updated_at: -1}}).map(function(invitation, index){
       invitation.rank = index + 1;
       return invitation;
     })
    },
    rankOrder: function(){
       if (this.active == true){
-        return 'valid';
+        return 'active';
       } else{
         return 'inactive';
       }

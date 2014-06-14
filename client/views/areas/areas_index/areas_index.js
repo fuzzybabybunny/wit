@@ -13,14 +13,20 @@ Template.AreasIndex.events({
 Template.AreasIndex.helpers({
   areas: function(){
     return Areas.find();
+  },
+  venuesCount: function(){
+    //console.log('count from object: ' + getVenuesCount(this).count());
+    return getVenuesCount(this).count();
   }
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+
 });
+
+getVenuesCount = function(area){
+    //console.log('venues : ' + area.location)
+    return Venues.find({
+      'location.location': area.location
+    });
+};
 
 /*****************************************************************************/
 /* AreasIndex: Lifecycle Hooks */

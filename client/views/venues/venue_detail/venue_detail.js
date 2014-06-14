@@ -18,14 +18,17 @@ Template.VenueDetail.helpers({
    *  }
    */
    invitations: function(){
-    return Invitations.find({'venue_id': this._id}).map(function(invitation, index){
+    console.log('invitations called');
+    return Invitations.find({
+      'venue_id': this._id
+    }).map(function(invitation, index){
       invitation.rank = index + 1;
       return invitation;
     })
    },
    rankOrder: function(){
       if (this.active == true){
-        return 'active';
+        return 'valid';
       } else{
         return 'inactive';
       }

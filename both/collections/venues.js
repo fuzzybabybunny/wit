@@ -15,6 +15,12 @@ Venues = new Meteor.Collection('venues', {
       label: "Friendly location for URL",
       max: 20
     },
+    venue_type: {
+      type: String,
+      label: 'Venue type',
+      max: 20,
+      allowedValues: ['bar', 'restaurant', 'shop', 'cafe', 'nightclub', 'hotel']
+    },
       "location.address": {
         type: String,
         label: "Street address",
@@ -37,7 +43,8 @@ Venues = new Meteor.Collection('venues', {
         type: String,
         label: "Country",
         max: 50,
-        optional: true
+        optional: true,
+        allowedValues: ['Hong Kong', 'Macau', 'Shenzen', 'Singapore', 'Manila', 'Hanoi', 'Bangkok']
       },
 
       "contact.phone": {
@@ -70,13 +77,19 @@ Venues = new Meteor.Collection('venues', {
 
       "profile.tag": {
         type: String,
-        label: "Brief description",
+        label: "Brief headline description",
         max: 100,
         optional: true
       },
       "profile.description": {
         type: String,
         label: "Fullsome description",
+        max: 500,
+        optional: true
+      },
+      "profile.owner_description":{
+        type: String,
+        label: "Owner description",
         max: 500,
         optional: true
       },
