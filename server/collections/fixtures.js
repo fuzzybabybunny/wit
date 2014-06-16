@@ -219,8 +219,8 @@ if (Invitations.find().count() === 0) {
           thu: true,
           fri: true
         },
-        timeFrom: new Date(moment({hour:11})),
-        timeTo: new Date(moment({hour:18}))
+        timeFrom: 12,
+        timeTo: 18
       },
       updated_at: new Date(),
       created_at: new Date()

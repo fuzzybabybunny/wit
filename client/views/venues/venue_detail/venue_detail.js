@@ -32,6 +32,14 @@ Template.VenueDetail.helpers({
       } else{
         return 'inactive';
       }
+   },
+   timeFrom: function(){
+    console.log('timeFrom' + this.valid.timeFrom);
+    return moment({hour: this.valid.timeFrom, minute: 0}).format("h.mma");
+   },
+  timeTo: function(){
+    console.log('timeFrom' + this.valid.timeTo);
+    return moment({hour: this.valid.timeTo, minute: 0}).format("h.mma");
    }
 });
 
