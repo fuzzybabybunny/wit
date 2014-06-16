@@ -9,7 +9,7 @@
         <a href="{{pathFor 'areas.index'}}">Areas</a>
       </li>
       <li>
-        <a href="{{pathFor 'area'}}">{{location.location}}</a>
+        <a href="{{pathFor 'area'}}">{{location.venue_area}}</a>
       </li>
       <li class="active">
         {{venue_name}}
@@ -49,12 +49,11 @@
 
     </div>
     <div class="col-sm-3">
-      <img src="{{this.images_head}}/convert?w=160" class="my-image" alt="image" />
+      <img src="{{this.images_logo}}/convert?w=160" class="my-image" alt="image" />
       <sidebar>
         <address>
           <strong>{{venue_name}}</strong><br>
-          {{location.address}}<br>
-          {{location.location}}, {{location.city}}<br>
+          {{location.formatted_address}}<br>
           <abbr title="Phone">P:</abbr> {{contact.phone}}
         </address>
       </sidebar>

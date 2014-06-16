@@ -20,12 +20,17 @@ Template.EditVenue.events({
         function(InkBlob){
           console.log(JSON.stringify(InkBlob));
           console.log(InkBlob.url);
-
           console.log('id: ' + id);
 
           var venue = Venues.findOne({'_id': id});
+          var images = venue.images;
+          console.log('images: ' + JSON.stringify(images));
 
-          Venues.update({ _id: id },{ $set: {'images_head': InkBlob.url }});
+          images.push(InkBlob);
+          //_.extend(images, JSON.stringify(InkBlob));
+
+          console.log('images + push: ' + images);
+          Venues.update({ _id: id },{ $set: {'images': images }});
 
         },
         function(FPError){

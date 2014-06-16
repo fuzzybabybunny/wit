@@ -59,7 +59,7 @@ Template.MasterLayout.helpers({
 /*****************************************************************************/
 Template.MasterLayout.created = function () {
     $('head').append('<script type="text/javascript" src="/js/filepicker.js"/>');
-    filepicker.setKey('A8n1EmLAaS0W5ONRiTgGAz');
+    filepicker.setKey('AOz6zhDqjTnuenfBEE65qz');
 };
 
 Template.MasterLayout.rendered = function () {

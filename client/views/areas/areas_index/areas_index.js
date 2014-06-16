@@ -24,7 +24,7 @@ Template.AreasIndex.helpers({
 getVenuesCount = function(area){
     //console.log('venues : ' + area.location)
     return Venues.find({
-      'location.location': area.location
+      'location.venue_area': area.location
     });
 };
 
