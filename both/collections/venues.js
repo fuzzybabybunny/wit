@@ -288,9 +288,15 @@ Venues = new Meteor.Collection('venues', {
         type: String,
         optional: true
       },
-      images_head: {
+
+      "main_image.url": {
         type: String,
         label: "Main image: enter url from Images",
+        optional: true
+      },
+      "main_image.convert": {
+        type: String,
+        label: "Filepicker convert adjustments: convert?crop=x,y,width,height",
         optional: true
       },
       images_logo: {

@@ -173,6 +173,10 @@ if (Venues.find().count() === 0) {
             url: "https://www.filepicker.io/api/file/3lRYjnW7R9iZgJOMYlxu"
         }
     ],
+    main_image: {
+        url: "https://www.filepicker.io/api/file/mBLsXU0RHal9rs2P9Sjg",
+        convert: "convert?crop=0,200,900,350"
+    },
     images_logo: "https://www.filepicker.io/api/file/3lRYjnW7R9iZgJOMYlxu",
     items: [
         {
