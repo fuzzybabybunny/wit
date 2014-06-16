@@ -1,7 +1,8 @@
 <template name="EditVenue">
 <div class="container">
-  <h2>{{venue_name}}</h2>
+  <h2>{{venue_name}}{{_id}}</h2>
   <a href="{{pathFor 'venue.detail'}}"><button class="btn btn-default">Venue Home</button></a>
+  <button class="btn btn-default image">Add Image</button>
   <br><br>
   {{> quickForm collection="Venues" doc=editingDoc id="updateVenuesForm" type="update" }}
 </div>

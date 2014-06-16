@@ -3,23 +3,27 @@ Venues = new Meteor.Collection('venues', {
     venue_name: {
       type: String,
       label: "Venue name",
-      max: 50
+      max: 50,
+        optional: true
     },
     slug_name: {
       type: String,
       label: "Friendly name for URL",
-      max: 20
+      max: 20,
+        optional: true
     },
     slug_location: {
       type: String,
       label: "Friendly location for URL",
-      max: 20
+      max: 20,
+        optional: true
     },
     venue_type: {
       type: String,
       label: 'Venue type',
       max: 20,
-      allowedValues: ['bar', 'restaurant', 'shop', 'cafe', 'nightclub', 'hotel']
+      allowedValues: ['bar', 'restaurant', 'shop', 'cafe', 'nightclub', 'hotel'],
+        optional: true
     },
       "location.address": {
         type: String,
@@ -37,7 +41,8 @@ Venues = new Meteor.Collection('venues', {
       "location.location": {
         type: String,
         label: "Area",
-        max: 50
+        max: 50,
+        optional: true
       },
       "location.country": {
         type: String,
@@ -108,8 +113,34 @@ Venues = new Meteor.Collection('venues', {
         type: Number,
         label: "Followers",
         max: 6,
-        defaultValue: 0
+        defaultValue: 0,
+        optional: true
       },
+
+      images_head: {
+          type: String,
+        optional: true
+
+      },
+
+      // "images.$.filename": {
+      //     type: String,
+      //   optional: true
+      // },
+
+      // "images.$.mimetype":{
+      //   type: String,
+      //   optional: true
+      // },
+      // "images.$.size":{
+      //   type: String,
+      //   optional: true
+      // },
+      // "images.$.isWriteable":{
+      //   type: Boolean,
+      //   optional: true
+      // },
+
 
     updated_at: {
       type: Date,

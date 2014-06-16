@@ -43,6 +43,8 @@
     <ul class="list-inline detail-list">
       <li>Type: {{invite_type}}</li>
       <li>Category: {{category}}</li>
+      <li>Starts at: {{timeFrom}}</li>
+      <li>Finishes at: {{timeTo}}</li>
     </ul>
     <div class="modify-invite">
       <button href="#" class="edit modBtn btn btn-link btn-xs">edit</button>
@@ -64,6 +66,10 @@
             {{> afQuickField name="active" radio="true" trueLabel="Yes" falseLabel="No"}}
             {{> afQuickField name="invite_type" options="allowed"}}
             {{> afQuickField name="category" options="allowed"}}
+            {{> afFieldLabel name="valid.timeFrom"}}
+            {{> afFieldInput name="valid.timeFrom" options=timeOptions}}
+            {{> afFieldLabel name="valid.timeTo"}}
+            {{> afFieldInput name="valid.timeTo" options=timeOptions}}
 
         </div>
         <div class="panel-footer">

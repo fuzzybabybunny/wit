@@ -46,12 +46,7 @@
 
     </div>
     <div class="col-sm-3">
-      {{#if currentUser}}
-        <p><b>Administrator access:</b></p>
-          <button class="btn btn-default btn-block">Dashboard</button>
-          <a href="{{pathFor 'view.invitations' params=this}}"><button class="btn btn-default btn-block">Manage Invites</button></a>
-          <a href="{{pathFor 'edit.venue' params=this}}"><button class="btn btn-default btn-block">Edit Profile</button></a>
-      {{/if}}
+      <img src="{{this.images_head}}/convert?w=200" class="my-image" alt="image" />
       <sidebar>
         <address>
           <strong>{{venue_name}}</strong><br>
@@ -60,6 +55,12 @@
           <abbr title="Phone">P:</abbr> {{contact.phone}}
         </address>
       </sidebar>
+      {{#if currentUser}}
+        <p><b>Administrator access:</b></p>
+          <button class="btn btn-default btn-block">Dashboard</button>
+          <a href="{{pathFor 'view.invitations' params=this}}"><button class="btn btn-default btn-block">Manage Invites</button></a>
+          <a href="{{pathFor 'edit.venue' params=this}}"><button class="btn btn-default btn-block">Edit Profile</button></a>
+      {{/if}}
     </div>
   </div>
 

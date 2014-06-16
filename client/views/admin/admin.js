@@ -31,3 +31,4 @@ Template.Admin.rendered = function () {
 
 Template.Admin.destroyed = function () {
 };
+

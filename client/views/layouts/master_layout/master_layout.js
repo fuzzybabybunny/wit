@@ -58,9 +58,8 @@ Template.MasterLayout.helpers({
 /* MasterLayout: Lifecycle Hooks */
 /*****************************************************************************/
 Template.MasterLayout.created = function () {
-  $('head').append(
-    'script type="text/javascript" src="/js/noty-2.2.4/js/noty/packaged/jquery.noty.packaged.js"/>'
-  );
+    $('head').append('<script type="text/javascript" src="/js/filepicker.js"/>');
+    filepicker.setKey('A8n1EmLAaS0W5ONRiTgGAz');
 };
 
 Template.MasterLayout.rendered = function () {
