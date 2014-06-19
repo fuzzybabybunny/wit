@@ -26,12 +26,12 @@
 
 {{#if this.main_image.url}}
 <div class="main-image">
-  <img src="{{main_image.url}}/{{main_image.convert}}" alt="image"/>
+  <img src="{{main_image.url}}/{{main_image.convert}}" class="img-respnsive" alt="image"/>
 </div>
 {{/if}}
 
 <div class="container">
-  <div class="row main-content">
+  <div class="row">
     <div class="col-sm-9">
       <div class="description">
         <p class="lead">{{profile.description}}</p>
@@ -69,6 +69,9 @@
           <a href="{{pathFor 'view.invitations' params=this}}"><button class="btn btn-default btn-block">Manage Invites</button></a>
           <a href="{{pathFor 'edit.venue' params=this}}"><button class="btn btn-default btn-block">Edit Profile</button></a>
       {{/if}}
+    {{#each images}}
+      <img src="{{this.url}}/convert?w=160&fit=clip" class="img-thumbnail">
+    {{/each}}
     </div>
   </div>
 

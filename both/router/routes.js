@@ -60,6 +60,13 @@ Router.map(function () {
     template: 'VenuesIndex'
   });
 
+  this.route('activity', {
+    path: '/activity',
+    template: 'Activity'
+  });
+
+
+
   this.route('venue.detail', {
     path: '/areas/:slug_location/:slug_name',
     template: 'VenueDetail'
@@ -95,5 +102,6 @@ Router.map(function () {
     path: '/admin/invitations/:_id',
     template: 'ViewInvitations'
   });
+
 });
 

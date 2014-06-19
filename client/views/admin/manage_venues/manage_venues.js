@@ -21,12 +21,7 @@ Template.ManageVenues.events({
 });
 
 Template.ManageVenues.helpers({
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+
   venues: function(){
     return Venues.find({}, {
           sort: {

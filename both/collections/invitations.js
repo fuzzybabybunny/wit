@@ -8,17 +8,20 @@ Invitations = new Meteor.Collection('invitations', {
     venue_name: {
       type: String,
       label: "Venue name",
-      max: 50
+      max: 50,
+      optional: true
     },
     slug_name: {
       type: String,
       label: "Friendly name for URL",
-      max: 20
+      max: 20,
+      optional: true
     },
     slug_location: {
       type: String,
       label: "Friendly location for URL",
-      max: 20
+      max: 20,
+      optional: true
     },
     active: {
       type: Boolean,
@@ -72,41 +75,6 @@ Invitations = new Meteor.Collection('invitations', {
         label: "Date the invite ends (can be an estimate)",
         optional: true
       },
-        "valid.days.mon": {
-          type: Boolean,
-          label: "Monday",
-          optional: true
-        },
-        "valid.days.tue": {
-          type: Boolean,
-          label: "Tuesday",
-          optional: true
-        },
-        "valid.days.wed": {
-          type: Boolean,
-          label: "Wednesday",
-          optional: true
-        },
-        "valid.days.thu": {
-          type: Boolean,
-          label: "Thurssday",
-          optional: true
-        },
-        "valid.days.fri": {
-          type: Boolean,
-          label: "Friday",
-          optional: true
-        },
-        "valid.days.sat": {
-          type: Boolean,
-          label: "Saturday",
-          optional: true
-        },
-        "valid.days.sun": {
-          type: Boolean,
-          label: "Sunday",
-          optional: true
-        },
       "valid.timeFrom": {
         type: Number,
         label: "Time during the day the invite is valid from",
@@ -115,6 +83,14 @@ Invitations = new Meteor.Collection('invitations', {
       "valid.timeTo": {
         type: Number,
         label: "Time when offer expires during the day",
+        optional: true
+      },
+      "valid.days":{
+        type: [String],
+        minCount: 0,
+        maxCount: 7,
+        label: 'mon, tues',
+        allowedValues: ["1","2","3","4","5","6","7"],
         optional: true
       },
 

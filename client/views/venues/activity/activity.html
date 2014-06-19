@@ -1,0 +1,104 @@
+<template name="Activity">
+<div class="container">
+<div class="col-sm-9">
+  <div class="row">
+    <h2>Activity Monitor</h2>
+
+    <h3>Active Now</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Invite</th>
+          <th>Area</th>
+          <th>Venue</th>
+          <th>Expiring</th>
+        </tr>
+      </thead>
+      {{#each invitesActiveNow}}
+      <tr class="invite {{selectedClass}}">
+        <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
+        <td>location</td>
+        <td>{{area}}</td>
+        <td>{{venue_name}}</td>
+        <td></td>
+      </tr>
+        <tr class="panelDetails" id="showPanel-{{_id}}" style="display: none">
+          ROW
+        </tr>
+      {{/each}}
+    </table>
+
+    <h3>Active Soon</h3>
+    <table class="table">
+      {{#each invitesActiveSoon}}
+      <tr class="invite {{selectedClass}}">
+        <td>{{venue_name}}</td>
+        <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
+        <td>{{updated_at_formatted}}</td>
+        <td>{{startDateFormatted}}</td>
+        <td>{{endDateFormatted}}</td>
+        <td>{{timeFromFormatted}}</td>
+        <td>{{timeToFormatted}}</td>
+      </tr>
+      {{/each}}
+    </table>
+
+    <h3>Expired Today</h3>
+    <table class="table">
+      {{#each invitesExpired}}
+      <tr class="invite {{selectedClass}}">
+        <td>{{venue_name}}</td>
+        <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
+        <td>{{updated_at_formatted}}</td>
+        <td>{{startDateFormatted}}</td>
+        <td>{{endDateFormatted}}</td>
+        <td>{{timeFromFormatted}}</td>
+        <td>{{timeToFormatted}}</td>
+      </tr>
+      {{/each}}
+    </table>
+
+
+
+    <h3>Tomorrow's Invitations</h3>
+      <table class="table">
+      {{#each tmrwsInvites}}
+      <tr>
+        <td>{{venue_name}}</td>
+        <td>{{title.full}}</td>
+        <td>{{updated_at_formatted}}</td>
+        <td>{{startDateFormatted}}</td>
+        <td>{{endDateFormatted}}</td>
+      </tr>
+      {{/each}}
+      </table>
+
+    <h3>Latest Updates</h3>
+      <table class="table">
+      {{#each invitations}}
+      <tr>
+        <td>{{venue_name}}</td>
+        <td>{{title.full}}</td>
+        <td>{{updated_at_formatted}}</td>
+        <td>{{startDateFormatted}}</td>
+        <td>{{endDateFormatted}}</td>
+      </tr>
+      {{/each}}
+      </table>
+
+  </div>
+</div>
+<div class="col-sm-3">
+  <div class="row">
+  <ul>
+    <li>Day: {{getDay}}</li>
+    <li>Date: {{getDate}}</li>
+    <li>todayStart: {{todayStart}}</li>
+    <li>todayEnd: {{endOfDay}}</li>
+    <li>Hour now: {{getHour}}</li>
+  </ul>
+  </div>
+
+</div>
+</div>
+</template>

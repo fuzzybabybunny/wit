@@ -306,15 +306,9 @@ if (Invitations.find().count() === 0) {
       invite_type: 'public',
       category: "happy hour",
       valid: {
-        startDate: new Date(),
-        endDate: new Date(moment({M: 11})),
-        days: {
-          mon: true,
-          tue: true,
-          wed: true,
-          thu: true,
-          fri: true
-        },
+        startDate: new Date(moment({H: 0, m: 1})),
+        endDate: new Date(moment({M: 11, H: 23, m: 59})),
+        days: ["1","2","3","4","5","6"],
         timeFrom: 12,
         timeTo: 18
       },

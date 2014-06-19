@@ -12,7 +12,7 @@ Template.ViewInvitations.events({
       e.preventDefault;
       $('.resetAll').hide();
       id = this._id
-      $('#insertForm').show();
+      $('#insertForm').show(1000);
 
       //$(e.currentTarget).html(
       //  $(e.currentTarget).text() == 'Create Invite' ? 'Hide Invite' : 'Create Invite'
@@ -70,12 +70,12 @@ Template.ViewInvitations.helpers({
    },
 
    timeFrom: function(){
-    console.log('timeFrom' + this.valid.timeFrom);
-    return moment({hour: this.valid.timeFrom, minute: 0}).format("h.mma");
+    //console.log('timeFrom' + this.valid.timeFrom);
+    return '';//moment({hour: this.valid.timeFrom, minute: 0}).format("h.mma");
    },
   timeTo: function(){
-    console.log('timeFrom' + this.valid.timeTo);
-    return moment({hour: this.valid.timeTo, minute: 0}).format("h.mma");
+    //console.log('timeFrom' + this.valid.timeTo);
+    return '';//moment({hour: this.valid.timeTo, minute: 0}).format("h.mma");
    }
 });
 

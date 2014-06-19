@@ -26,18 +26,14 @@
             {{> afQuickField name="valid.startDate" value=getToday}}
             {{> afQuickField name="valid.endDate" value=getToday}}
 
-            {{> afQuickField name="valid.days.mon" value=true}}
-            {{> afQuickField name="valid.days.tue" value=true}}
-            {{> afQuickField name="valid.days.wed" value=true}}
-            {{> afQuickField name="valid.days.thu" value=true}}
-            {{> afQuickField name="valid.days.fri" value=true}}
-            {{> afQuickField name="valid.days.sat" value=true}}
-            {{> afQuickField name="valid.days.sun" value=true}}
+            {{> afArrayField name="valid.days"}}
 
             {{> afFieldLabel name="valid.timeFrom"}}
             {{> afFieldInput name="valid.timeFrom" options=timeOptions}}
             {{> afFieldLabel name="valid.timeTo"}}
             {{> afFieldInput name="valid.timeTo" options=timeOptions}}
+
+
 
         </div>
         <div class="panel-footer">
