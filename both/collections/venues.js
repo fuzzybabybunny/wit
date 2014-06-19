@@ -12,7 +12,7 @@ Venues = new Meteor.Collection('venues', {
       max: 20,
         optional: true
     },
-    slug_location: {
+    slug_area: {
       type: String,
       label: "Friendly location for URL",
       max: 20,

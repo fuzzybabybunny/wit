@@ -2,21 +2,26 @@
 /* Activity: Event Handlers and Helpers */
 /*****************************************************************************/
 Template.Activity.events({
-  'click tr.invite': function(e, tmpl){
-    console.log("Invite clicked");
+  'click div.invite': function(e, tmpl){
     var inviteId = this._id;
     Session.set('selectedInvite', inviteId);
-    console.log("inviteId: " + Session.get('selectedInvite'));
+    //console.log("inviteId: " + Session.get('selectedInvite'));
 
     //update for invitePanel
      //$('.panelDetails').hide();
       id = this._id
-      $('.panelDetails').hide();
+      //$('.panelDetails').hide();
       $('#showPanel-' + id).toggle(150);
+  },
+  'click btn.btn-outline': function(e, tmpl){
+    e.preventDefault
+    $('.btn-outline').removeClass('selectedGroup');
+    $('.showTab').hide();
+    $(e.currentTarget).addClass('selectedGroup');
 
+    var btnValue = $(e.currentTarget).attr("value");
+    $('#' + btnValue).show();
   }
-
-
 });
 
 Template.Activity.helpers({
@@ -41,7 +46,6 @@ Template.Activity.helpers({
    endOfDay: function(){
       return getDate(1);
    },
-
    invitesActiveNow: function(){
     return Invitations.find({
       active: true,
@@ -51,7 +55,7 @@ Template.Activity.helpers({
       'valid.timeTo': { $gte: timeNow()},
       'valid.timeFrom': { $lt: timeNow()}
     },{
-      sort: { updated_at:-1 }
+      sort: { 'valid.timeTo':1 }
     });
    },
 
@@ -64,7 +68,7 @@ Template.Activity.helpers({
       'valid.timeTo': { $gte: timeNow()},
       'valid.timeFrom': { $gte: timeNow()}
     },{
-      sort: { updated_at:-1 }
+      sort: { 'valid.timeFrom':1 }
     });
    },
 
@@ -77,10 +81,18 @@ Template.Activity.helpers({
       'valid.timeTo': { $lte: timeNow()}
       //'valid.timeFrom': { $gte: timeNow()}
     },{
-      sort: { updated_at:-1 }
+      sort: { 'valid.timeTo':-1 }
     });
    },
-
+   inviteExpiringAt: function(){
+    return timeDiff(timeNow(), this.valid.timeTo);
+   },
+   inviteActiveAt: function(){
+    return timeDiff(this.valid.timeFrom, timeNow());
+   },
+   inviteStartingAt: function(){
+    return moment({h: getTotalMins(this.valid.timeFrom) / 60}).format("h:mma");
+   },
    tmrwsInvites: function(){
     return Invitations.find({
       active: true,
@@ -89,11 +101,17 @@ Template.Activity.helpers({
       'valid.startDate': { $lt:  getDate(2)}
 
     },{
-      sort: { updated_at:-1 }
+      sort: { updated_at:-1 },
+      limit: 10
     });
    },
-   invitations: function(){
-    return Invitations.find({active: true},{sort: {updated_at:-1}});
+   invitationsUpdated: function(){
+    return Invitations.find({
+        active: true
+      },{
+        sort: {updated_at:-1},
+        limit: 10
+      });
    },
   updated_at_formatted: function(){
     var now = moment(this.updated_at).fromNow();
@@ -132,7 +150,7 @@ getDate = function(relative_day){
   var month = JSON.parse(moment().format("M"))-1;
   var day = JSON.parse(moment().format("D"))+relative_day;
 
-  console.log(year + ',' + month + ',' + day);
+  //console.log(year + ',' + month + ',' + day);
   return new Date(year, month, day);
 };
 
@@ -150,6 +168,37 @@ getDay = function(relative_day){
 };
 
 timeNow = function(){
-  console.log(moment().format("H.mm"));
+  //console.log(moment().format("H.mm"));
   return JSON.parse(moment().format("H.mm"));
 };
+
+getTotalMins = function(timeOfDay){
+  var mins = (timeOfDay % 1);
+  //console.log('timeOfDay: ' + timeOfDay);
+  console.log('mins: ' + mins);
+  var totalMins = (timeOfDay - mins)*60 + mins*100;
+  //console.log('totalMins: ' + totalMins);
+  return totalMins;
+ }
+
+timeDiff = function(startTime, finishTime){
+  var minutesToExpire = getTotalMins(finishTime) - getTotalMins(startTime);
+  // console.log('startTime: ' + startTime);
+  // console.log('finishTime: ' + finishTime);
+  // console.log('total mins:' + minutesToExpire);
+  // console.log('Hours: ' + hours);
+  // console.log('Minutes: ' + minutes);
+
+  var inHours = minutesToExpire / 60;
+  var minutes = inHours % 1 * 60/100;
+  minutes = Math.round(minutes *100);
+  var hours = Math.floor(inHours - minutes/100);
+
+  if (minutesToExpire < 60){
+      expiry = Math.round(minutesToExpire) + 'min';
+    } else{
+      expiry = hours + 'hr '+minutes+'m';
+    };
+  return expiry;
+
+}

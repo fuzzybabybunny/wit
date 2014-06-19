@@ -3,7 +3,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     name: 'The Globe',
     slug_name: 'the-globe',
-    slug_location: 'soho',
+    slug_area: 'soho',
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -30,7 +30,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     name: 'The Hong Kong Brewhouse',
     slug_name: 'hk-brewhouse',
-    slug_location: 'soho',
+    slug_area: 'soho',
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -57,7 +57,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     name: 'La Piola',
     slug_name: 'la-piola',
-    slug_location: 'soho',
+    slug_area: 'soho',
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -84,7 +84,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     name: 'Posto Publico',
     slug_name: 'posto-publico',
-    slug_location: 'soho',
+    slug_area: 'soho',
     location: {
       address: '1 Soho Street',
       city: 'Hong Kong Island',
@@ -111,7 +111,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     name: 'Vissa',
     slug_name: 'vissa',
-    slug_location: 'kowloon',
+    slug_area: 'kowloon',
     location: {
       address: '1 Soho Street',
       city: 'Tai Kok Tsui',

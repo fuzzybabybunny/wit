@@ -19,7 +19,7 @@ Template.Area.helpers({
    */
 
    venues: function(){
-    return Venues.find({'slug_location': this.slug_location});
+    return Venues.find({'slug_area': this.slug_area});
    }
 });
 

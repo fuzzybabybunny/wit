@@ -17,10 +17,16 @@ Invitations = new Meteor.Collection('invitations', {
       max: 20,
       optional: true
     },
-    slug_location: {
+    slug_area: {
       type: String,
       label: "Friendly location for URL",
       max: 20,
+      optional: true
+    },
+    venue_area: {
+      type: String,
+      label: "Area",
+      max: 40,
       optional: true
     },
     active: {

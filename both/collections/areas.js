@@ -5,7 +5,7 @@ Areas = new Meteor.Collection('areas', {
       label: "Area location",
       max: 300
     },
-    slug_location: {
+    slug_area: {
       type: String,
       label: "Friendly url for location",
       max: 50

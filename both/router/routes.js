@@ -51,7 +51,7 @@ Router.map(function () {
   });
 
   this.route('area', {
-    path: '/areas/:slug_location',
+    path: '/areas/:slug_area',
     template: 'Area'
   });
 
@@ -68,12 +68,12 @@ Router.map(function () {
 
 
   this.route('venue.detail', {
-    path: '/areas/:slug_location/:slug_name',
+    path: '/areas/:slug_area/:slug_name',
     template: 'VenueDetail'
   });
 
   this.route('edit.venue', {
-    path: '/areas/:slug_location/:slug_name/edit',
+    path: '/areas/:slug_area/:slug_name/edit',
     template: 'EditVenue'
   });
 

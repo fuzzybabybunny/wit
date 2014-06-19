@@ -1,104 +1,121 @@
 <template name="Activity">
+<div class="page-intro">
+  <div class="container">
+    <h1 class="page-head">What's on</h1>
+    <p>Walk into great offers in Hong Kong</p>
+  </div>
+</div>
+
 <div class="container">
-<div class="col-sm-9">
-  <div class="row">
-    <h2>Activity Monitor</h2>
+  <div class="col-sm-12">
 
-    <h3>Active Now</h3>
-    <table class="table">
-      <thead>
+    <div class="row buttonGroup">
+      <btn class="btn btn-outline btn-lg selectedGroup" value="activeNow">What's On</btn>
+      <btn class="btn btn-outline btn-lg" value="activeSoon">Coming Up</btn>
+      <btn class="btn btn-outline btn-lg" value="activeExpired">Expired</btn>
+      <btn class="btn btn-outline btn-lg" value="activeTmrw">Tmrw</btn>
+      <btn class="btn btn-outline btn-lg" value="activeUpdates">Updates</btn>
+    </div>
+  </div>
+    <div class="row showTab" id="activeNow" style="">
+        {{#each invitesActiveNow}}
+          <div class="col-sm-12">
+            <div class="palette-item invite {{selectedClass}}">
+              <div class="palette palette-wet-asphalt">
+                <span class="title">{{title.full}}</span>
+                <i class="fa fa-cutlery"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-coffee"></i>
+                <br>
+                <span class="venue">{{venue_name}}</span>,
+                <span class="subTitle">{{venue_area}}</span>
+              <div class="infoBox">
+                <dl>
+                  <dt>Expiring</dt>
+                  <dd>{{inviteExpiringAt}}</dd>
+                </dl>
+              </div>
+              </div>
+            <dl class="panelDetails palette palette-midnight-blue" id="showPanel-{{_id}}" style="display: none">
+              <dt>{{title.brief_name}}</dt>
+              <dd>Started at: {{inviteStartingAt}}</dd>
+            </dl>
+          </div>
+        </div>
+          {{/each}}
+    </div>
+
+    <div class="row showTab" id="activeSoon" style="display: none">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Invite</th>
+            <th>Area</th>
+            <th>Venue</th>
+            <th>Starts</th>
+            <th>Starting</th>
+          </tr>
+        </thead>
+        {{#each invitesActiveSoon}}
+        <tr class="invite {{selectedClass}}">
+          <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
+          <td>{{venue_area}}</td>
+          <td>{{venue_name}}</td>
+          <td>{{inviteStartingAt}}</td>
+          <td>{{inviteActiveAt}}</td>
+        </tr>
+          <tr class="panelDetails" id="showPanel-{{_id}}" style="display: none">
+            ROW
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+
+    <div class="row showTab" id="activeExpired" style="display: none">
+      <table class="table">
+        {{#each invitesExpired}}
+        <tr class="invite {{selectedClass}}">
+          <td>{{venue_name}}</td>
+          <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
+          <td>{{updated_at_formatted}}</td>
+          <td>{{startDateFormatted}}</td>
+          <td>{{endDateFormatted}}</td>
+          <td>{{timeFromFormatted}}</td>
+          <td>{{timeToFormatted}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+
+    <div class="row showTab" id="activeTmrw" style="display: none">
+        <table class="table">
+        {{#each tmrwsInvites}}
         <tr>
-          <th>Invite</th>
-          <th>Area</th>
-          <th>Venue</th>
-          <th>Expiring</th>
+          <td>{{venue_name}}</td>
+          <td>{{title.full}}</td>
+          <td>{{updated_at_formatted}}</td>
+          <td>{{startDateFormatted}}</td>
+          <td>{{endDateFormatted}}</td>
         </tr>
-      </thead>
-      {{#each invitesActiveNow}}
-      <tr class="invite {{selectedClass}}">
-        <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
-        <td>location</td>
-        <td>{{area}}</td>
-        <td>{{venue_name}}</td>
-        <td></td>
-      </tr>
-        <tr class="panelDetails" id="showPanel-{{_id}}" style="display: none">
-          ROW
+        {{/each}}
+        </table>
+    </div>
+
+    <div class="row showTab" id="activeUpdates" style="display: none">
+        <table class="table">
+        {{#each invitationsUpdated}}
+        <tr>
+          <td>{{venue_name}}</td>
+          <td>{{title.full}}</td>
+          <td>{{updated_at_formatted}}</td>
+          <td>{{startDateFormatted}}</td>
+          <td>{{endDateFormatted}}</td>
         </tr>
-      {{/each}}
-    </table>
-
-    <h3>Active Soon</h3>
-    <table class="table">
-      {{#each invitesActiveSoon}}
-      <tr class="invite {{selectedClass}}">
-        <td>{{venue_name}}</td>
-        <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
-        <td>{{updated_at_formatted}}</td>
-        <td>{{startDateFormatted}}</td>
-        <td>{{endDateFormatted}}</td>
-        <td>{{timeFromFormatted}}</td>
-        <td>{{timeToFormatted}}</td>
-      </tr>
-      {{/each}}
-    </table>
-
-    <h3>Expired Today</h3>
-    <table class="table">
-      {{#each invitesExpired}}
-      <tr class="invite {{selectedClass}}">
-        <td>{{venue_name}}</td>
-        <td><a href="{{pathFor 'view.invitations' _id=this.venue_id}}">{{title.full}}</a></td>
-        <td>{{updated_at_formatted}}</td>
-        <td>{{startDateFormatted}}</td>
-        <td>{{endDateFormatted}}</td>
-        <td>{{timeFromFormatted}}</td>
-        <td>{{timeToFormatted}}</td>
-      </tr>
-      {{/each}}
-    </table>
+        {{/each}}
+        </table>
+    </div>
 
 
 
-    <h3>Tomorrow's Invitations</h3>
-      <table class="table">
-      {{#each tmrwsInvites}}
-      <tr>
-        <td>{{venue_name}}</td>
-        <td>{{title.full}}</td>
-        <td>{{updated_at_formatted}}</td>
-        <td>{{startDateFormatted}}</td>
-        <td>{{endDateFormatted}}</td>
-      </tr>
-      {{/each}}
-      </table>
-
-    <h3>Latest Updates</h3>
-      <table class="table">
-      {{#each invitations}}
-      <tr>
-        <td>{{venue_name}}</td>
-        <td>{{title.full}}</td>
-        <td>{{updated_at_formatted}}</td>
-        <td>{{startDateFormatted}}</td>
-        <td>{{endDateFormatted}}</td>
-      </tr>
-      {{/each}}
-      </table>
-
-  </div>
-</div>
-<div class="col-sm-3">
-  <div class="row">
-  <ul>
-    <li>Day: {{getDay}}</li>
-    <li>Date: {{getDate}}</li>
-    <li>todayStart: {{todayStart}}</li>
-    <li>todayEnd: {{endOfDay}}</li>
-    <li>Hour now: {{getHour}}</li>
-  </ul>
-  </div>
-
-</div>
 </div>
 </template>

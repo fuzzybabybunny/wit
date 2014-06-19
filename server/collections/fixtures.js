@@ -3,7 +3,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     venue_name: "Mano",
     venue_type: "cafe",
-    slug_location: "central",
+    slug_area: "central",
     slug_name: "mano",
     contact: {
         manager: "Keith",
@@ -80,7 +80,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     venue_name: "The Globe",
     venue_type: "bar",
-    slug_location: "soho",
+    slug_area: "soho",
     slug_name: "thegloble",
     contact: {
         manager: "Keith",
@@ -157,7 +157,7 @@ if (Venues.find().count() === 0) {
   Venues.insert({
     venue_name: "La Piola",
     venue_type: "restaurant",
-    slug_location: "soho",
+    slug_area: "soho",
     slug_name: "la-piola",
     contact: {
         manager: "Keith",
@@ -245,32 +245,32 @@ if (Venues.find().count() === 0) {
 if (Areas.find().count() === 0) {
   Areas.insert({
     location: 'Soho',
-    slug_location: 'soho'
+    slug_area: 'soho'
   });
 
   Areas.insert({
     location: 'Central',
-    slug_location: 'central'
+    slug_area: 'central'
   });
 
   Areas.insert({
     location: 'Lan Kwai Fong',
-    slug_location: 'lan-kwai-fong'
+    slug_area: 'lan-kwai-fong'
   });
 
   Areas.insert({
     location: 'Sheung Wan',
-    slug_location: 'sheung-wan'
+    slug_area: 'sheung-wan'
   });
 
   Areas.insert({
     location: 'Wan Chai',
-    slug_location: 'wan-chai'
+    slug_area: 'wan-chai'
   });
 
   Areas.insert({
     location: 'Kowloon',
-    slug_location: 'kowloon'
+    slug_area: 'kowloon'
   });
 }
 
@@ -295,7 +295,8 @@ if (Invitations.find().count() === 0) {
       venue_id: venue._id,
       venue_name: venue.venue_name,
       slug_name: venue.slug_name,
-      slug_location: venue.slug_location,
+      slug_area: venue.slug_area,
+      venue_area: venue.location.venue_area,
       active: true,
       quota: '-1',
       title: {
@@ -324,7 +325,7 @@ if (Invitations.find().count() === 0) {
 /**
     venue_name: 'The Globe222',
     slug_name: 'the-globe',
-    slug_location: 'soho',
+    slug_area: 'soho',
     active: true,
     location: {
       address: '1 Soho Street',
@@ -354,7 +355,7 @@ if (Invitations.find().count() === 0) {
   Venues.insert({
     venue_name: 'The Hong Kong Brewhouse',
     slug_name: 'hk-brewhouse',
-    slug_location: 'soho',
+    slug_area: 'soho',
     active: true,
     location: {
       address: '1 Soho Street',
@@ -384,7 +385,7 @@ if (Invitations.find().count() === 0) {
   Venues.insert({
     venue_name: 'La Piola',
     slug_name: 'la-piola',
-    slug_location: 'soho',
+    slug_area: 'soho',
     active: true,
     location: {
       address: '1 Soho Street',
@@ -414,7 +415,7 @@ if (Invitations.find().count() === 0) {
   Venues.insert({
     venue_name: 'Posto Publico',
     slug_name: 'posto-publico',
-    slug_location: 'soho',
+    slug_area: 'soho',
     active: true,
     location: {
       address: '1 Soho Street',
@@ -444,7 +445,7 @@ if (Invitations.find().count() === 0) {
   Venues.insert({
     venue_name: 'Vissa',
     slug_name: 'vissa',
-    slug_location: 'kowloon',
+    slug_area: 'kowloon',
     active: true,
     location: {
       address: '1 Soho Street',
