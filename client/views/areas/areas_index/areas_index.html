@@ -1,14 +1,17 @@
 <template name="AreasIndex">
   <div class="container">
-    <div class="col-sm-4">
-      <ul class="list-group">
-        {{#each areas}}
-          <a href="{{pathFor 'area'}}" class="list-group-item">
-            {{location}}
-                <span class="badge">{{venuesCount}}</span>
-          </a>
-        {{/each}}
-      </ul>
-    </div>
+      <div class="col-sm-3 main">
+        <ul class="list-group">
+          {{#each areas}}
+            <a href="{{pathFor 'area'}}" class="list-group-item">
+              {{location}}
+                  <span class="badge">{{venuesCount}}</span>
+            </a>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-3-offset main">
+        <div id="map-canvas"></div>
+      </div>
   </div>
 </template>
