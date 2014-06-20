@@ -1,17 +1,35 @@
 <template name="AreasIndex">
+  {{#contentFor region="breadcrumbs"}}
+    <div class="no-pad">
+      <ol class="breadcrumb">
+        <li>
+          <a href="{{pathFor 'home'}}">Home</a>
+        </li>
+        <li class="active">
+          Areas
+        </li>
+      </ol>
+    </div>
+  {{/contentFor}}
   <div class="container">
-      <div class="col-sm-3 main">
-        <ul class="list-group">
-          {{#each areas}}
-            <a href="{{pathFor 'area'}}" class="list-group-item">
-              {{location}}
-                  <span class="badge">{{venuesCount}}</span>
-            </a>
-          {{/each}}
-        </ul>
+      <div class="col-sm-3">
+        <div class="row side-nav">
+          <ul class="list-group">
+            {{#each areas}}
+              <a href="{{pathFor 'area'}}" class="list-group-item">
+                {{location}}
+                    <span class="badge">{{venuesCount}}</span>
+              </a>
+            {{/each}}
+          </ul>
+        </div>
       </div>
-      <div class="col-sm-9 col-sm-3-offset main">
-        <div id="map-canvas"></div>
+      <div class="col-sm-9 col-sm-3-offset">
+        <div class="row map-nav">
+          <div id="map-canvas">
+
+          </div>
+        </div>
       </div>
   </div>
 </template>

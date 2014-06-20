@@ -8,7 +8,8 @@
       "accounts-entry": {},
       "roles": {},
       "autoform": {},
-      "noty": {}
+      "noty": {},
+      "googlemaps": {}
     },
     "packages": {
       "iron-router": {
@@ -23,8 +24,8 @@
       },
       "font-awesome-4-less": {
         "git": "https://github.com/svub/fontawesome4-less.git",
-        "tag": "v4.3.7",
-        "commit": "21f60350cd238fb7053132f42409a3090f76939e"
+        "tag": "v4.3.8",
+        "commit": "925e820b149b72a94aafc57585acdd1fd2165c61"
       },
       "accounts-entry": {
         "git": "https://github.com/Differential/accounts-entry.git",
@@ -38,13 +39,18 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.11.0",
-        "commit": "efdffcdf836a45c50c39696ede15399177ccb9fa"
+        "tag": "v0.12.0",
+        "commit": "24b0284425e446f2d88760a81052eefe74a20bbf"
       },
       "noty": {
         "git": "https://github.com/tabruhn/meteor-noty.git",
         "tag": "v2.2.0",
         "commit": "4edbe6e35a5707add16367d338c1bf53222e6163"
+      },
+      "googlemaps": {
+        "git": "https://github.com/drewjw81/meteor-googlemaps.git",
+        "tag": "v0.0.2",
+        "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
