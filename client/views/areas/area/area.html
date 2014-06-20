@@ -1,7 +1,7 @@
 <template name="Area">
-<div class="container">
   {{#contentFor region="breadcrumbs"}}
-    <ol class="breadcrumb text-center">
+  <div class="no-pad">
+    <ol class="breadcrumb">
       <li>
         <a href="{{pathFor 'home'}}">Home</a>
       </li>
@@ -12,14 +12,19 @@
         {{location}}
       </li>
     </ol>
-  {{/contentFor}}
-  <div class="row">
-    <h4>{{location}}</h4>
   </div>
-  <div class="row">
-    {{#each venues}}
-      <h4><a href="{{pathFor 'venue.detail' venues}}">{{venue_name}}</a></h4>
-    {{/each}}
+  {{/contentFor}}
+
+<div class="container">
+  <div class="col-sm-12">
+    <div class="row">
+      <h2>{{location}}</h2>
+    </div>
+    <div class="row">
+      {{#each venues}}
+        <h4><a href="{{pathFor 'venue.detail' venues}}">{{venue_name}}</a></h4>
+      {{/each}}
+    </div>
   </div>
 </div>
 </template>

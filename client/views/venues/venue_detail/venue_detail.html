@@ -1,21 +1,21 @@
 <template name="VenueDetail">
   {{#contentFor region="breadcrumbs"}}
-  <div class="no-pad">
-    <ol class="breadcrumb text-center">
-      <li>
-        <a href="{{pathFor 'home'}}">Home</a>
-      </li>
-      <li>
-        <a href="{{pathFor 'areas.index'}}">Areas</a>
-      </li>
-      <li>
-        <a href="{{pathFor 'area'}}">{{location.venue_area}}</a>
-      </li>
-      <li class="active">
-        {{venue_name}}
-      </li>
-    </ol>
-  </div>
+    <div class="no-pad">
+      <ol class="breadcrumb">
+        <li>
+          <a href="{{pathFor 'home'}}">Home</a>
+        </li>
+        <li>
+          <a href="{{pathFor 'areas.index'}}">Areas</a>
+        </li>
+        <li>
+          <a href="{{pathFor 'area'}}">{{location.venue_area}}</a>
+        </li>
+        <li class="active">
+          {{venue_name}}
+        </li>
+      </ol>
+    </div>
   {{/contentFor}}
 <div class="page-intro">
   <div class="container">

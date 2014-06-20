@@ -1,4 +1,31 @@
 <template name="Invite">
+  {{#contentFor region="breadcrumbs"}}
+  <div class="no-pad">
+    <ol class="breadcrumb">
+      <li>
+        <a href="{{pathFor 'home'}}">Home</a>
+      </li>
+      <li>
+        <a href="{{pathFor 'areas.index'}}">Areas</a>
+      </li>
+      <li>
+        <a href="{{pathFor 'area'}}">{{venue_area}}</a>
+      </li>
+      <li>
+        <a href="{{pathFor 'venue.detail'}}">{{venue_name}}</a>
+      </li>
+      <li class="active">
+        {{title.brief}}
+      </li>
+    </ol>
+  </div>
+  {{/contentFor}}
+<div class="page-intro">
+  <div class="container">
+    <h1 class="page-head">{{venue_name}}</h1>
+    <p>{{title.brief}}</p>
+  </div>
+</div>
 <div class="container">
   Invitation _id: {{invitations._id}}<br>
   <a href="{{pathFor 'edit.invite' this}}">Edit Invitation</a>
