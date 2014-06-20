@@ -39,7 +39,8 @@ if (Venues.find().count() === 0) {
         quick_directions: "Take exit A from Hong Kong MTR",
         suburb: "Central",
         subway: "Hong Kong",
-        venue_area: "Central"
+        venue_area: "Central",
+        latlng: [22.279991,114.158798]
     },
     open: [
         {
@@ -116,7 +117,8 @@ if (Venues.find().count() === 0) {
         quick_directions: "Take exit A from Hong Kong MTR",
         suburb: "Central",
         subway: "Hong Kong",
-        venue_area: "Soho"
+        venue_area: "Soho",
+        latlng: [22.279991,114.158798]
     },
     open: [
         {
@@ -197,7 +199,8 @@ if (Venues.find().count() === 0) {
         quick_directions: "Take exit A from Hong Kong MTR",
         suburb: "Central",
         subway: "Hong Kong",
-        venue_area: "Soho"
+        venue_area: "Soho",
+        latlng: [22.282689,114.128329]
     },
     open: [
         {

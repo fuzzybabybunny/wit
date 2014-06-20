@@ -88,10 +88,16 @@ Venues = new Meteor.Collection('venues', {
         optional: true,
       },
       "location.quick_directions": {
-          type: String,
-          label: "Quick directions to get there fast",
-          max: 400,
-          optional: true
+        type: String,
+        label: "Quick directions to get there fast",
+        max: 400,
+        optional: true
+      },
+      "location.latlng": {
+        type: [Number],
+        decimal:true,
+        label: "Location geohash coordinate pair",
+        optional: false
       },
 
 //*********************
