@@ -65,8 +65,6 @@ Router.map(function () {
     template: 'Activity'
   });
 
-
-
   this.route('venue.detail', {
     path: '/areas/:slug_area/:slug_name',
     template: 'VenueDetail'
@@ -76,6 +74,18 @@ Router.map(function () {
     path: '/areas/:slug_area/:slug_name/edit',
     template: 'EditVenue'
   });
+
+  this.route('invite', {
+    path: '/areas/:slug_area/:slug_name/invite/:_id',
+    template: 'Invite'
+  });
+
+  this.route('edit.invite', {
+    path: '/areas/:slug_area/:slug_name/invite/:_id/edit',
+    template: 'EditInvite'
+  });
+
+
 
 //////////////////////////////////////////////////////////////
 //
@@ -102,6 +112,5 @@ Router.map(function () {
     path: '/admin/invitations/:_id',
     template: 'ViewInvitations'
   });
-
 });
 

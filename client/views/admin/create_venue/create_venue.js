@@ -2,27 +2,26 @@
 /* CreateVenue: Event Handlers and Helpers */
 /*****************************************************************************/
 Template.CreateVenue.events({
-  /*
-   * Example:
-   *  'click .selector': function (e, tmpl) {
-   *
-   *  }
-   */
-  'click .docClear': function(e, t) {
+   'click .afBtn': function(e,t){
       e.preventDefault();
-      console.log('reset clicked');
-      AutoForm.resetForm("quickForm");
-      Session.set("selectedDoc", null);
-    }
+      $('.autoform').toggle();
+   },
+
+   'input #fmVenueName': function(e, t){
+      e.preventDefault();
+      Session.set("fmVenueName", $(e.currentTarget).val());
+   },
+    'input #fmLocationFormattedAddress': function(e, t){
+      e.preventDefault();
+      Session.set("fmLocationFormattedAddress", $(e.currentTarget).val());
+   }
 });
 
+
+
 Template.CreateVenue.helpers({
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+  fmVenueName: function(){ return Session.get("fmVenueName");},
+  fmLocationFormattedAddress: function(){ return Session.get("fmLocationFormattedAddress");}
 });
 
 /*****************************************************************************/

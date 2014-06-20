@@ -36,19 +36,17 @@
       <div class="description">
         <p class="lead">{{profile.description}}</p>
       </div>
-
         {{#each invitations}}
-
         <div class="invite-summary">
           <div class="invite-order {{rankOrder}}">
             #{{this.rank}}
           </div>
           <div class="invite-details clearfix">
-            <h4>{{title.full}}</h4>
+            <h4><a href="{{pathFor 'invite' this}}">{{title.full}}</a></h4>
             <span class="label label-success time-badge">
                 From {{timeFrom}} <br>to {{timeTo}}
             </span>
-            <p>view more</p>
+            <p>{{_id}}</p>
           </div>
         </div>
         {{/each}}

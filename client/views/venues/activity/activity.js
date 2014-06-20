@@ -47,16 +47,16 @@ Template.Activity.helpers({
       return getDate(1);
    },
    invitesActiveNow: function(){
-    return Invitations.find({
-      active: true,
-      'valid.days': { $in: [getDay()] },
-      'valid.endDate': { $gte: getDate(0)},
-      'valid.startDate': { $lt:  getDate(1)},
-      'valid.timeTo': { $gte: timeNow()},
-      'valid.timeFrom': { $lt: timeNow()}
-    },{
-      sort: { 'valid.timeTo':1 }
-    });
+      return Invitations.find({
+        active: true,
+        'valid.days': { $in: [getDay()] },
+        'valid.endDate': { $gte: getDate(0)},
+        'valid.startDate': { $lt:  getDate(1)},
+        'valid.timeTo': { $gte: timeNow()},
+        'valid.timeFrom': { $lt: timeNow()}
+      },{
+        sort: { 'valid.timeTo':1 }
+      });
    },
 
    invitesActiveSoon: function(){
@@ -71,7 +71,6 @@ Template.Activity.helpers({
       sort: { 'valid.timeFrom':1 }
     });
    },
-
    invitesExpired: function(){
     return Invitations.find({
       active: true,
@@ -90,8 +89,11 @@ Template.Activity.helpers({
    inviteActiveAt: function(){
     return timeDiff(this.valid.timeFrom, timeNow());
    },
-   inviteStartingAt: function(){
+   inviteStartsAt: function(){
     return moment({h: getTotalMins(this.valid.timeFrom) / 60}).format("h:mma");
+   },
+   inviteEndsAt: function(){
+    return moment({h: getTotalMins(this.valid.timeTo) / 60}).format("h:mma");
    },
    tmrwsInvites: function(){
     return Invitations.find({
@@ -164,7 +166,6 @@ getDay = function(relative_day){
   //return moment().format("d");
   //return "7";
   return moment().add('days', relative_day).format("d").toString();
-
 };
 
 timeNow = function(){
@@ -175,7 +176,7 @@ timeNow = function(){
 getTotalMins = function(timeOfDay){
   var mins = (timeOfDay % 1);
   //console.log('timeOfDay: ' + timeOfDay);
-  console.log('mins: ' + mins);
+  //console.log('mins: ' + mins);
   var totalMins = (timeOfDay - mins)*60 + mins*100;
   //console.log('totalMins: ' + totalMins);
   return totalMins;
