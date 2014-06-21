@@ -3,7 +3,7 @@
 /*****************************************************************************/
 Template.EditInvite.events({
   /*
-   * Example: 
+   * Example:
    *  'click .selector': function (e, tmpl) {
    *
    *  }
@@ -12,7 +12,7 @@ Template.EditInvite.events({
 
 Template.EditInvite.helpers({
   /*
-   * Example: 
+   * Example:
    *  items: function () {
    *    return Items.find();
    *  }
@@ -29,4 +29,8 @@ Template.EditInvite.rendered = function () {
 };
 
 Template.EditInvite.destroyed = function () {
+};
+
+Template.EditInvite.editingDoc = function () {
+  return Invitations.findOne({_id: this._id});
 };

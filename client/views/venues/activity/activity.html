@@ -13,14 +13,16 @@
       <btn class="btn btn-outline btn-lg selectedGroup" value="activeNow">What's On</btn>
       <btn class="btn btn-outline btn-lg" value="activeSoon">Coming Up</btn>
       <btn class="btn btn-outline btn-lg" value="activeTmrw">Tmrw</btn>
+      <btn class="btn btn-outline btn-lg" value="updated">Updated</btn>
     </div>
   </div>
+
     <div class="row showTab" id="activeNow" style="">
       {{#each invitesActiveNow}}
           <div class="col-sm-12">
 
             <div class="palette-item invite {{selectedClass}}">
-            <!--<button class="btn btn-default inviteBtn">Yo!</button>-->
+            <button class="btn btn-default inviteBtn">Yo!</button>
               <div class="infoBox">
                 <dl>
                   <dt>Expiring</dt>
@@ -28,7 +30,7 @@
                 </dl>
               </div>
               <div class="palette palette-wet-asphalt">
-                <span class="title">{{title.brief}}</span>
+                <span class="title"><a href="{{pathFor 'invite'}}">{{title.brief}}</a></span>
                 <i class="fa fa-cutlery"></i>
                 <i class="fa fa-beer"></i>
                 <i class="fa fa-coffee"></i>
@@ -106,6 +108,40 @@
         {{/each}}
     </div>
 
+    <div class="row showTab" id="updated" style="display: none">
+        {{#each invitationsUpdated}}
+          <div class="col-sm-12">
+
+            <div class="palette-item invite {{selectedClass}}">
+            <!--<button class="btn btn-default inviteBtn">Yo!</button>-->
+              <div class="infoBox">
+                <dl>
+                  <dt>Expiring</dt>
+                  <dd>{{inviteExpiringAt}}</dd>
+                </dl>
+              </div>
+              <div class="palette palette-wet-asphalt">
+                <span class="title">{{title.brief}}</span>
+                <i class="fa fa-cutlery"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-coffee"></i>
+                <br>
+                <span class="venue"><a href="{{pathFor 'venue.detail'}}">{{venue_name}}</a></span>,
+                <span class="subTitle">{{venue_area}}</span>
+              </div>
+            <dl class="panelDetails palette palette-midnight-blue" id="showPanel-{{_id}}" style="display: none">
+              <dt>
+                <span class="title">{{title.full}}</span>
+                <span class="invite-type">{{category}}</span>
+              </dt>
+              <dd>{{description}}</dd>
+              <dd>Starts: {{inviteStartsAt}}</dd>
+              <dd>Ends: {{inviteEndsAt}}</dd>
+            </dl>
+          </div>
+        </div>
+        {{/each}}
+    </div>
 
 </div>
 </template>

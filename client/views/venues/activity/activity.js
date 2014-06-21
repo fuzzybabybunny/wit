@@ -47,6 +47,7 @@ Template.Activity.helpers({
       return getDate(1);
    },
    invitesActiveNow: function(){
+    console.log('log');
       return Invitations.find({
         active: true,
         'valid.days': { $in: [getDay()] },
@@ -60,6 +61,11 @@ Template.Activity.helpers({
    },
 
    invitesActiveSoon: function(){
+    console.log('getDay(): ' + getDay());
+    console.log();
+    console.log();
+    console.log();
+    console.log();
     return Invitations.find({
       active: true,
       'valid.days': { $in: [getDay()] },
@@ -161,24 +167,25 @@ startOfDay = function(){
 };
 
 getDay = function(relative_day){
-  relative_day = relative_day || 1;
-  //console.log(moment().format("d"));
-  //return moment().format("d");
-  //return "7";
-  return moment().add('days', relative_day).format("d").toString();
+  relative_day = relative_day || 0;
+  // console.log('getday: ' + moment().format("d"));
+  // return moment().format("d");
+  // return "7";
+  console.log('returing: ' + moment().add('days', relative_day).format("d").toString());
+  return (JSON.parse(moment().add('days', 1).format("d"))+1).toString();
 };
 
 timeNow = function(){
-  //console.log(moment().format("H.mm"));
+  // console.log(moment().format("H.mm"));
   return JSON.parse(moment().format("H.mm"));
 };
 
 getTotalMins = function(timeOfDay){
   var mins = (timeOfDay % 1);
-  //console.log('timeOfDay: ' + timeOfDay);
-  //console.log('mins: ' + mins);
+  // console.log('timeOfDay: ' + timeOfDay);
+  // console.log('mins: ' + mins);
   var totalMins = (timeOfDay - mins)*60 + mins*100;
-  //console.log('totalMins: ' + totalMins);
+  // console.log('totalMins: ' + totalMins);
   return totalMins;
  }
 

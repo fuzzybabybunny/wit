@@ -36,40 +36,41 @@ Template.AreasIndex.created = function () {
 };
 
 Template.AreasIndex.rendered = function () {
+  GoogleMaps.init(
+      {
+          'sensor': true, //optional
+          //'key': 'MY-GOOGLEMAPS-API-KEY', //optional
+          //'language': 'de' //optional
+      },
+      function(){
+          var mapOptions = {
+              zoom: 13,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              disableDefaultUI:true
+          };
+          var styles = [
+            {
+              stylers: [
+                {hue: "#00ffe6"},
+                {saturation:-20}
+              ]
+            },{
+              featureType: "road",
+              elementType: "geometry",
+              stylers: [{lightness:100},{visibility:"simplified"}]
+            },{
+              featureType:"road",
+              elementType:"labels",
+              stylers: [{visibility:"off"}]
+            }
+          ];
+          map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+          map.setCenter(new google.maps.LatLng( 22.299, 114.160000 ));
+          map.setOptions({styles:styles});
+  });
 };
 
 Template.AreasIndex.destroyed = function () {
 };
 
-GoogleMaps.init(
-    {
-        'sensor': true, //optional
-        //'key': 'MY-GOOGLEMAPS-API-KEY', //optional
-        //'language': 'de' //optional
-    },
-    function(){
-        var mapOptions = {
-            zoom: 13,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            disableDefaultUI:true
-        };
-        var styles = [
-          {
-            stylers: [
-              {hue: "#00ffe6"},
-              {saturation:-20}
-            ]
-          },{
-            featureType: "road",
-            elementType: "geometry",
-            stylers: [{lightness:100},{visibility:"simplified"}]
-          },{
-            featureType:"road",
-            elementType:"labels",
-            stylers: [{visibility:"off"}]
-          }
-        ];
-        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions); 
-        map.setCenter(new google.maps.LatLng( 22.299, 114.160000 ));
-        map.setOptions({styles:styles});
-});
+
