@@ -9,7 +9,8 @@
       "roles": {},
       "autoform": {},
       "noty": {},
-      "googlemaps": {}
+      "googlemaps": {},
+      "jade": {}
     },
     "packages": {
       "iron-router": {
@@ -24,8 +25,8 @@
       },
       "font-awesome-4-less": {
         "git": "https://github.com/svub/fontawesome4-less.git",
-        "tag": "v4.3.8",
-        "commit": "925e820b149b72a94aafc57585acdd1fd2165c61"
+        "tag": "v4.3.9",
+        "commit": "45e5d416d85ad8216ac17066492dddb67ad4acb4"
       },
       "accounts-entry": {
         "git": "https://github.com/Differential/accounts-entry.git",
@@ -51,6 +52,11 @@
         "git": "https://github.com/drewjw81/meteor-googlemaps.git",
         "tag": "v0.0.2",
         "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
+      },
+      "jade": {
+        "git": "https://github.com/mquandalle/meteor-jade.git",
+        "tag": "v0.2.4",
+        "commit": "a47a4c59daaa57e7fe5f1544d4ea76d95a5c9abf"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

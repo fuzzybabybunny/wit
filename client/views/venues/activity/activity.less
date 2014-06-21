@@ -77,14 +77,11 @@ btn.btn-outline {
 }
 
 .palette-wet-asphalt:hover, .palette-wet-asphalt:focus, .palette-wet-asphalt:active {
-  background-color: #BDC3C7;
-    -webkit-border-top-left-radius: 6px;
-    -moz-border-radius-topleft: 6px;
-    border-top-left-radius: 6px;
+  background-color: darken(hsl(220, 20%, 94%), 3%);
 }
 
 .palette-wet-asphalt {
-  background-color: #ECF0F1;
+  background-color: hsl(220, 10%, 94%);
     -webkit-border-top-left-radius: 6px;
     -moz-border-radius-topleft: 6px;
     border-top-left-radius: 6px;
@@ -92,7 +89,7 @@ btn.btn-outline {
 
 .palette-midnight-blue, .palette-midnight-blue, .palette-midnight-blue {
   background-color: #BDC3C7;
-  color: #ECF0F1;
+  color: #FFFFFF;
 }
 
 
@@ -105,21 +102,23 @@ btn.btn-outline {
   text-transform: lowercase;
   float:right;
   width: 100px;
-  background: #ECF0F1;
   border: 0px;
   height: 100%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+
 }
 
 .infoBox dt {
   font-weight: 200;
   text-transform: uppercase;
   margin-left: 0;
-  opacity: 0.8;
-  filter: alpha(opacity=80);
+  opacity: 0.9;
+  filter: alpha(opacity=90);
   -webkit-font-smoothing: subpixel-antialiased;
 }
 .infoBox dd {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .invite-type {
