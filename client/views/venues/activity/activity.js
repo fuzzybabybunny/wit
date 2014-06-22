@@ -30,6 +30,12 @@ Template.Activity.helpers({
       return "selected";
     }
   },
+  // inviteValid: function(){
+  //   var invite = JSON.stringify(this);
+  //   console.log('invite: ' + invite);
+  //   inviteValid(invite, moment());
+  //   return 'done';
+  // },
   getHour: function(){
     return moment().format("HH.mm");
   },
@@ -47,7 +53,6 @@ Template.Activity.helpers({
       return getDate(1);
    },
    invitesActiveNow: function(){
-    console.log('log');
       return Invitations.find({
         active: true,
         'valid.days': { $in: [getDay()] },
@@ -61,11 +66,6 @@ Template.Activity.helpers({
    },
 
    invitesActiveSoon: function(){
-    console.log('getDay(): ' + getDay());
-    console.log();
-    console.log();
-    console.log();
-    console.log();
     return Invitations.find({
       active: true,
       'valid.days': { $in: [getDay()] },
@@ -136,6 +136,9 @@ Template.Activity.helpers({
   },
   timeFromFormatted: function(){
     return this.valid.timeFrom + ":00";
+  },
+  inviteWidget: function(){
+    return inviteWidget(this.valid, moment());
   }
 });
 

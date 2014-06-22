@@ -21,8 +21,8 @@ getDay = function(relative_day) {
   // console.log('getday: ' + moment().format("d"));
   // return moment().format("d");
   // return "7";
-  console.log('returing: ' + moment().add('days', relative_day).format("d").toString());
-  return (JSON.parse(moment().add('days', 1).format("d")) + 1).toString();
+  //console.log('returing: ' + moment().add('days', relative_day).format("d").toString());
+  return JSON.parse(moment().format("d")).toString();
 };
 
 timeNow = function() {

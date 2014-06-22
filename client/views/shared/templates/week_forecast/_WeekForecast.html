@@ -1,0 +1,14 @@
+<template name="WeekForecast">
+  <div class="week-forecast text-center">
+    <p>Valid next 7 days</p>
+    <ul class="pagination">
+    {{#each this}}
+      <li class="{{#if this.valid}} invite-valid {{else}} no-invite{{/if}}">
+        <a href="#">
+          {{this.date}}
+        </a>
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+</template>

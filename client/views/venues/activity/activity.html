@@ -22,7 +22,9 @@
           <div class="col-sm-12">
 
             <div class="palette-item invite {{selectedClass}}">
-            <button class="btn btn-default inviteBtn">Yo!</button>
+            <a href="{{pathFor 'invite'}}">
+              <button class="btn btn-default btn-sm inviteBtn">View Offer</button>
+            </a>
               <div class="infoBox">
                 <dl>
                   <dt>Expiring</dt>
@@ -40,6 +42,7 @@
               </div>
             <dl class="panelDetails palette palette-midnight-blue" id="showPanel-{{_id}}" style="display: none">
               <dt>
+                {{> InviteWidget inviteWidget}}
                 <span class="title">{{title.full}}</span>
                 <span class="invite-type">{{category}}</span>
               </dt>
@@ -141,6 +144,8 @@
           </div>
         </div>
         {{/each}}
+
+        {{inviteValid}}
     </div>
 
 </div>

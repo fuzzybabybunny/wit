@@ -27,22 +27,26 @@
   </div>
 </div>
 <div class="container">
-  <h2>{{title.full}}</h2>
-  <p>Category: {{category}}</p>
-  <p>Starts: {{valid.startDate}}</p>
-  <p>Ends: {{valid.endDate}}</p>
-  <p>{{description}}</p>
-  <div class="validTiming">
-    <ul>
-      <li><b>valid now? true/false</b></li>
-      <li>days of week valid over the next 7 days</li>
-      <li>time of day</li>
-      <li>when is the next offer</li>
-      <li>recurring? true/false</li>
-      <li>Quota: {{quota}}</li>
-    </ul>
+  <div class="col-sm-12">
+    <h2>{{title.full}}</h2>
+    {{> InviteWidget inviteWidget}}
+    <p>{{description}}</p>
+    <span>
+      <button class="btn btn-default btn-sm">Starts: {{starts}}</button>
+      <button class="btn btn-default btn-sm">Ends: {{ends}}</button>
+    </span>
+    <div class="validTiming">
+      <ul>
+        <li>Category: {{category}}</li>
+        <li>Invite Type: {{invite_type}}</li>
+        <li>Quota: {{quota}}</li>
+        <li>Ivite id: {{_id}}</li>
+        <li><a href="{{pathFor 'edit.invite' this}}">Edit Invitation</a>
+</li>
+      </ul>
+    </div>
+    {{> WeekForecast validNextSevenDays}}
+
   </div>
-  Invitation _id: {{invitations._id}}<br>
-  <a href="{{pathFor 'edit.invite' this}}">Edit Invitation</a>
 </div>
 </template>

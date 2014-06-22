@@ -96,7 +96,7 @@ Invitations = new Meteor.Collection('invitations', {
         minCount: 0,
         maxCount: 7,
         label: 'mon, tues',
-        allowedValues: ["1","2","3","4","5","6","7"],
+        allowedValues: ["0","1","2","3","4","5","6"],
         optional: true
       },
 
