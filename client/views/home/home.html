@@ -1,52 +1,51 @@
 <template name="Home">
   <div class="container">
-
-    <div class="wrapper">
-      <div class="starter-template">
-        <h1>Discover your new favourite venue</h1>
-        <p class="lead">the express matchmaking service for patrons to discover venues <br>
-        offering unique offers and experiences.</p>
-        <a href="{{pathFor 'areas.index'}}">
-          <button class="btn btn-info btn-lg">Let's Go</button>
+    <div class="row header">
+      <div class="col-sm-6 col-sm-offset-3">
+      <div class="row">
+        <div class="col-sm-4">
+          <h2 class="logo"><a href="{{pathFor 'activity'}}"><b>walkin</b>to</a></h2>
+        </div>
+        <div class="col-sm-8">
+          <ul class="head-list">
+            <li>great venues</li>
+            <li>exciting events</li>
+            <li>amazing deals</li>
+            <li>exclusive experiences</li>
+            <li>instant reservations</li>
+          </ul>
+        </div>
+        <a href="{{pathFor 'activity'}}">
+          <button class="btn btn-default btn-lg btn-discover">Discover walkin's available now</button>
         </a>
-
       </div>
-      <div class="push"></div>
+      </div>
     </div>
-  </div><!-- /.container -->
-
-
-<footer class="applicationFooter">
-  <div class="footer-row">
-    <section class="about">
-      <div class="subtitle">
-        About
-      </div>
-      <div class="desc">
-        walkin.to is a online platform that invites patrons to discover great venues.
-      </div>
-    </section>
-    <section class="links">
-      <div class="docs">
-        <div class="subtitle">
-          Learn More
-        </div>
-        <div class="list-vertical">
-          <a href="#" class="inverse">Get Started with walkin.to</a>
-          <a href="#" class="inverse">Get Started with walkin.to</a>
-          <a href="#" class="inverse">Get Started with walkin.to</a>
-
-        </div>
-      </div>
-      <dl class="stats">
-        <dt>Venues</dt>
-        <dd>6</dd>
-      </dl>
-    </section>
   </div>
-</footer>
-</template>
+        <div class="row quote-box">
+          <div class="container">
+          <div class="col-sm-6 col-sm-offset-3">
+            <img class="walkin-img" src="/images/walkin.png" width="200">
+              <div class="quote">
+                <p>Saying no to champagne is saying no to life. <br><b>walkin</b>to</p>
+              </div>
+            </div>
+          </div>
+      </div>
 
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <section class="call-to-action">
+            <h2>Walkin to your new favourite place</h2>
+            <ul>
+              <li>find the closet happy hours</li>
+              <li>recommended venues</li>
+              <li>table availability right now</li>
+              <li>amazing deals</li>
+              <li>be more exciting, <b>walkin</b>to</li>
+            </ul>
+        </section>
+        </div>
+      </div>
 
-<template name="quickForm_nothing">
 </template>
