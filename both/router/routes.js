@@ -112,5 +112,18 @@ Router.map(function () {
     path: '/admin/invitations/:_id',
     template: 'ViewInvitations'
   });
+
+
+//////////////////////////////////////////////////////////////
+//
+//                      ADMIN ROUTES
+//
+//////////////////////////////////////////////////////////////
+
+  this.route('profile', {
+    path: '/profile',
+    template: 'Profile'
+  });
+
 });
 

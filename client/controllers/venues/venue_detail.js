@@ -3,7 +3,8 @@ VenueDetailController = RouteController.extend({
     var slug_name = this.params.slug_name;
     return [
       Meteor.subscribe('venues', slug_name),
-      Meteor.subscribe('invitations', { active: true })
+      Meteor.subscribe('invitations', { active: true }),
+      Meteor.subscribe('followingVenue', {venue_id: Session.get("venue_id")})
     ];
   },
 

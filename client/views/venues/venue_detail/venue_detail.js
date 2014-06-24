@@ -11,12 +11,9 @@ Template.VenueDetail.events({
 });
 
 Template.VenueDetail.helpers({
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+  getVenueId: function(){
+    return this._id;
+  },
    invitations: function(){
     console.log('invitations called');
     return Invitations.find({
@@ -34,12 +31,20 @@ Template.VenueDetail.helpers({
       }
    },
    timeFrom: function(){
-    console.log('timeFrom' + this.valid.timeFrom);
     return moment({hour: this.valid.timeFrom, minute: 0}).format("h.mma");
    },
   timeTo: function(){
-    console.log('timeFrom' + this.valid.timeTo);
     return moment({hour: this.valid.timeTo, minute: 0}).format("h.mma");
+   },
+   follows: function(){
+      Session.set("venue_id", this._id);
+      console.log('follows called, find venue_id: ' + this._id);
+      var followers = Follows.find({venue_id: this._id});
+      Session.set('followers', followers.count());
+      return followers;
+   },
+   followersCount: function(){
+      return Session.get('followers');
    }
 });
 

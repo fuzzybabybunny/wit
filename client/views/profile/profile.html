@@ -1,0 +1,13 @@
+<template name="Profile">
+<div class="container">
+  <div>
+    <h3>Hello {{username}},</h3>
+    <h4>Venues followed:</h4>
+    {{#each userFollowing}}
+      <p><a href="{{pathFor 'venue.detail' userFollowing}}">{{venue_name}}</a></p>
+    {{/each}}
+    <h4>Walkins:</h4>
+    <h4>Comments:</h4>
+  </div>
+</div>
+</template>

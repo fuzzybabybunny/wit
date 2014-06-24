@@ -16,8 +16,22 @@
           </ul>
         </div>
         <a href="{{pathFor 'activity'}}">
-          <button class="btn btn-default btn-lg btn-discover">Discover walkin's available now</button>
+          <button class="btn btn-default btn-lg btn-discover text-center">
+            Discover today's walkin's
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </button>
         </a>
+        {{#unless currentUser}}
+        <p class="text-center or-tag"> - OR - </p>
+        <div class="text-center">
+          <a href="{{pathFor 'entrySignUp'}}">
+            <button class="btn btn-link btn-md">Sign Up</button>
+          </a>
+          <a href="{{pathFor 'entrySignIn'}}">
+            <button class="btn btn-link btn-md">Log in</button>
+          </a>
+        </div>
+        {{/unless}}
       </div>
       </div>
     </div>

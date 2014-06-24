@@ -35,6 +35,8 @@
     <div class="col-sm-9">
       <div class="description">
         <p class="lead">{{profile.description}}</p>
+        <button class="btn btn-success btn-sm">{{followersCount}} Followers</button>
+        {{> FollowVenue}}
       </div>
         {{#each invitations}}
         <div class="invite-summary">
@@ -70,6 +72,12 @@
     {{#each images}}
       <img src="{{this.url}}/convert?w=160&fit=clip" class="img-thumbnail">
     {{/each}}
+    Latest Followers:
+      <ul>
+      {{#each follows}}
+        <li>{{username}}</li>
+      {{/each }}
+      </ul>
     </div>
   </div>
 
