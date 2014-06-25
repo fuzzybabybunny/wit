@@ -1,10 +1,11 @@
 <template name="WeekForecast">
   <div class="week-forecast text-center">
-    <p>Valid next 7 days</p>
+    <p>Walkin's over the next 7 days</p>
     <ul class="pagination">
     {{#each this}}
       <li class="{{#if this.valid}} invite-valid {{else}} no-invite{{/if}}">
-        <a href="#">
+        <a href="{{pathFor 'invite' invitations
+          }}">
           {{this.date}}
         </a>
       </li>

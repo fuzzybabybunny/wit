@@ -1,6 +1,9 @@
 InviteController = RouteController.extend({
   waitOn: function () {
-    return Meteor.subscribe('invitations');
+    return [
+      Meteor.subscribe('invitations'),
+      Meteor.subscribe('venues')
+    ];
   },
 
   data: function () {

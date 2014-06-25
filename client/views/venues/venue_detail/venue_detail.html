@@ -62,6 +62,13 @@
           {{location.formatted_address}}<br>
           <abbr title="Phone">P:</abbr> {{contact.phone}}
         </address>
+        <ul class="latestUsers">
+          <li>Latest Followers:</li>
+          {{#each follows}}
+            <li><b>{{username}}</b> ({{shortTimeFormat created_at}})</li>
+          {{/each }}
+        </ul>
+
       </sidebar>
       {{#if currentUser}}
         <p><b>Administrator access:</b></p>
@@ -72,12 +79,6 @@
     {{#each images}}
       <img src="{{this.url}}/convert?w=160&fit=clip" class="img-thumbnail">
     {{/each}}
-    Latest Followers:
-      <ul>
-      {{#each follows}}
-        <li>{{username}}</li>
-      {{/each }}
-      </ul>
     </div>
   </div>
 

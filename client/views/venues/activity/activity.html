@@ -20,7 +20,6 @@
     <div class="row showTab" id="activeNow" style="">
       {{#each invitesActiveNow}}
           <div class="col-sm-12">
-
             <div class="palette-item invite {{selectedClass}}">
             <a href="{{pathFor 'invite'}}">
               <button class="btn btn-default btn-sm inviteBtn">View Offer</button>
@@ -42,7 +41,6 @@
               </div>
             <dl class="panelDetails palette palette-midnight-blue" id="showPanel-{{_id}}" style="display: none">
               <dt>
-                {{> InviteWidget inviteWidget}}
                 <span class="title">{{title.full}}</span>
                 <span class="invite-type">{{category}}</span>
               </dt>
@@ -59,24 +57,32 @@
         {{#each invitesActiveSoon}}
           <div class="col-sm-12">
             <div class="palette-item invite {{selectedClass}}">
+            <a href="{{pathFor 'invite'}}">
+              <button class="btn btn-default btn-sm inviteBtn">View Offer</button>
+            </a>
+              <div class="infoBox">
+                <dl>
+                  <dt>Kick off</dt>
+                  <dd>{{inviteExpiringAt}}</dd>
+                </dl>
+              </div>
               <div class="palette palette-wet-asphalt">
-                <span class="title">{{title.full}}</span>
+                <span class="title"><a href="{{pathFor 'invite'}}">{{title.brief}}</a></span>
                 <i class="fa fa-cutlery"></i>
                 <i class="fa fa-beer"></i>
                 <i class="fa fa-coffee"></i>
                 <br>
-                <span class="venue">{{venue_name}}</span>,
+                <span class="venue"><a href="{{pathFor 'venue.detail'}}">{{venue_name}}</a></span>,
                 <span class="subTitle">{{venue_area}}</span>
-              <div class="infoBox">
-                <dl>
-                  <dt>Expiring</dt>
-                  <dd>{{inviteExpiringAt}}</dd>
-                </dl>
-              </div>
               </div>
             <dl class="panelDetails palette palette-midnight-blue" id="showPanel-{{_id}}" style="display: none">
-              <dt>{{title.brief_name}}</dt>
-              <dd>Started at: {{inviteStartingAt}}</dd>
+              <dt>
+                <span class="title">{{title.full}}</span>
+                <span class="invite-type">{{category}}</span>
+              </dt>
+              <dd>{{description}}</dd>
+              <dd>Starts: {{inviteStartsAt}}</dd>
+              <dd>Ends: {{inviteEndsAt}}</dd>
             </dl>
           </div>
         </div>
@@ -87,24 +93,32 @@
         {{#each tmrwsInvites}}
           <div class="col-sm-12">
             <div class="palette-item invite {{selectedClass}}">
+            <a href="{{pathFor 'invite'}}">
+              <button class="btn btn-default btn-sm inviteBtn">View Offer</button>
+            </a>
+              <div class="infoBox">
+                <dl>
+                  <dt>Starts in</dt>
+                  <dd>1 day</dd>
+                </dl>
+              </div>
               <div class="palette palette-wet-asphalt">
-                <span class="title">{{title.full}}</span>
+                <span class="title"><a href="{{pathFor 'invite'}}">{{title.brief}}</a></span>
                 <i class="fa fa-cutlery"></i>
                 <i class="fa fa-beer"></i>
                 <i class="fa fa-coffee"></i>
                 <br>
-                <span class="venue">{{venue_name}}</span>,
+                <span class="venue"><a href="{{pathFor 'venue.detail'}}">{{venue_name}}</a></span>,
                 <span class="subTitle">{{venue_area}}</span>
-              <div class="infoBox">
-                <dl>
-                  <dt>Expiring</dt>
-                  <dd>{{inviteExpiringAt}}</dd>
-                </dl>
-              </div>
               </div>
             <dl class="panelDetails palette palette-midnight-blue" id="showPanel-{{_id}}" style="display: none">
-              <dt>{{title.brief_name}}</dt>
-              <dd>Started at: {{inviteStartingAt}}</dd>
+              <dt>
+                <span class="title">{{title.full}}</span>
+                <span class="invite-type">{{category}}</span>
+              </dt>
+              <dd>{{description}}</dd>
+              <dd>Starts: {{inviteStartsAt}}</dd>
+              <dd>Ends: {{inviteEndsAt}}</dd>
             </dl>
           </div>
         </div>
@@ -114,17 +128,12 @@
     <div class="row showTab" id="updated" style="display: none">
         {{#each invitationsUpdated}}
           <div class="col-sm-12">
-
             <div class="palette-item invite {{selectedClass}}">
-            <!--<button class="btn btn-default inviteBtn">Yo!</button>-->
-              <div class="infoBox">
-                <dl>
-                  <dt>Expiring</dt>
-                  <dd>{{inviteExpiringAt}}</dd>
-                </dl>
-              </div>
+            <a href="{{pathFor 'invite'}}">
+              <button class="btn btn-default btn-sm inviteBtn">View Offer</button>
+            </a>
               <div class="palette palette-wet-asphalt">
-                <span class="title">{{title.brief}}</span>
+                <span class="title"><a href="{{pathFor 'invite'}}">{{title.brief}}</a></span>
                 <i class="fa fa-cutlery"></i>
                 <i class="fa fa-beer"></i>
                 <i class="fa fa-coffee"></i>

@@ -100,11 +100,15 @@ inviteWidget = function(invite) {
   var inviteChecked = inviteValid(invite, moment());
   var results = {};
   if (inviteChecked['activeNow']) {
-    results['status'] = 'Active Now';
+    results['active'] = true;
+    results['status'] = 'On now';
     results['style'] = 'invite-active';
-  } else {
+    results['expiry'] = timeDiff(timeNow(), invite.timeTo);
+  } else if (inviteChecked['activeSoon']) {
+    results['soon'] = true;
     results['status'] = 'Active Soon';
     results['style'] = 'invite-soon';
+    results['expiry'] = timeDiff(timeNow(), invite.timeFrom);
   }
 
   var getHour = function(time){
@@ -114,7 +118,6 @@ inviteWidget = function(invite) {
 
   results['start'] = moment({h: getHour(invite.timeFrom), m: invite.timeFrom % 1 * 100}).format("h.mma");
   results['end'] = moment({h: getHour(invite.timeTo), m: invite.timeTo % 1 * 100}).format("h.mma");
-  results['expiry'] = timeDiff(timeNow(), invite.timeTo);
 
   return results;
 };

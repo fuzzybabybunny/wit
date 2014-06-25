@@ -39,14 +39,17 @@ Template.VenueDetail.helpers({
    follows: function(){
       Session.set("venue_id", this._id);
       console.log('follows called, find venue_id: ' + this._id);
-      var followers = Follows.find({venue_id: this._id});
-      Session.set('followers', followers.count());
-      return followers;
+      return Follows.find({
+        venue_id: this._id
+      },
+      {
+        sort: { created_at: -1 }
+      }
+      );
    },
    followersCount: function(){
-      return Session.get('followers');
-   }
-});
+      return Follows.find({venue_id: this._id}).count();
+   }});
 
 /*****************************************************************************/
 /* VenueDetail: Lifecycle Hooks */

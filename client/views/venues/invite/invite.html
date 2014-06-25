@@ -27,26 +27,62 @@
   </div>
 </div>
 <div class="container">
+
+<table cellpadding="0" class="cf aU9">
+  <tbody>
+  <tr>
+    <td class="aRi {{inviteWidget.style}}">
+      {{> InviteWidget inviteWidget}}
+      <div class="aU5">
+        <span class="aRh">Jul</span>
+        <span class="aRg">26</span>
+        <span class="aRj">Sat</span>
+      </div>
+    </td>
+    <td style="width:52%" class="aU4">
+      <div class="aRo">{{title.full}}</div>
+      <div class="aRn">
+        <a class="e">Set Google Calendar Invite</a>
+      </div>
+      <div class="aU6">
+        {{description}}
+      </div>
+      <table class="cf aU2">
+        <tbody>
+          <tr>
+            <td class="aRk">Type</td>
+            <td id=":1za" class="aU6">{{category}} / {{invite_type}}</td>
+          </tr>
+          <tr>
+            <td class="aRk">When</td>
+            <td id=":25j" class="aU6">{{starts}} - {{inviteWidget.start}} to {{inviteWidget.end}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+    <td class="aRc">
+      <div class="aQ3">
+        <div class="aRo">Location</div>
+        <div class="aRn">{{venue.location.formatted_address}}</div>
+        <table id=":1zb" class="cf aU2" style="table-layout:auto">
+          <tbody>
+            <tr class="aU0">
+              <td class="aQ5" colspan="2"><i>No earlier events</i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </td>
+  </tr>
+</tbody>
+</table>
+
   <div class="col-sm-12">
-    <h2>{{title.full}}</h2>
-    {{> InviteWidget inviteWidget}}
-    <p>{{description}}</p>
-    <span>
-      <button class="btn btn-default btn-sm">Starts: {{starts}}</button>
-      <button class="btn btn-default btn-sm">Ends: {{ends}}</button>
-    </span>
-    <div class="validTiming">
-      <ul>
-        <li>Category: {{category}}</li>
-        <li>Invite Type: {{invite_type}}</li>
-        <li>Quota: {{quota}}</li>
-        <li>Ivite id: {{_id}}</li>
-        <li><a href="{{pathFor 'edit.invite' this}}">Edit Invitation</a>
-</li>
-      </ul>
-    </div>
+
     {{> WeekForecast validNextSevenDays}}
 
   </div>
+
+
 </div>
 </template>

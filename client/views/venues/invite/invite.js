@@ -30,7 +30,7 @@ Template.Invite.helpers({
         'day': i,
         'date': moment().add('days',i).format("Do"),
         'valid': inviteValid(this.valid, moment().add('days', i))['activeToday']
-      }
+      };
     }
     console.log(daysValid);
     return daysValid;
@@ -39,11 +39,16 @@ Template.Invite.helpers({
     return inviteWidget(this.valid, moment());
   },
   starts: function(){
-    return moment(this.valid.startDate).format("Do MMM");
+    return moment(this.valid.startDate).format("DD MMM, YYYY");
   },
   ends: function(){
-    return moment(this.valid.endsDate).format("Do MMM");
+    return moment(this.valid.endDate).format("Do MMM");
+  },
+  venue: function(){
+    console.log('venue_id ' + this.venue_id);
+    return Venues.findOne({_id: this.venue_id});
   }
+
 });
 
 /*****************************************************************************/
