@@ -32,17 +32,17 @@
   <tbody>
   <tr>
     <td class="aRi {{inviteWidget.style}}">
-      {{> InviteWidget inviteWidget}}
       <div class="aU5">
         <span class="aRh">Jul</span>
         <span class="aRg">26</span>
         <span class="aRj">Sat</span>
       </div>
+      {{> InviteWidget inviteWidget}}
     </td>
     <td style="width:52%" class="aU4">
       <div class="aRo">{{title.full}}</div>
       <div class="aRn">
-        <a class="e">Set Google Calendar Invite</a>
+        <a class="e" href="{{pathFor 'venue.detail'}}">@{{venue_name}}</a>
       </div>
       <div class="aU6">
         {{description}}

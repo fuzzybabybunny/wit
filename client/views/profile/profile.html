@@ -3,9 +3,14 @@
   <div>
     <h3>Hello {{username}},</h3>
     <h4>Venues followed:</h4>
-    {{#each userFollowing}}
-      <p><a href="{{pathFor 'venue.detail' userFollowing}}">{{venue_name}}</a></p>
-    {{/each}}
+    {{#if userFollowing}}
+      {{#each userFollowing}}
+        <p><a href="{{pathFor 'venue.detail' userFollowing}}">{{venue_name}}</a></p>
+      {{/each}}
+    {{else}}
+      <p><em>You are currnetly not following any venues. <br>
+      Start following venues to easily track your favourite venues.</em></p>
+    {{/if}}
     <h4>Walkins:</h4>
     <h4>Comments:</h4>
   </div>

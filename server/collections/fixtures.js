@@ -248,50 +248,57 @@ if (Venues.find().count() === 0) {
 if (Areas.find().count() === 0) {
   Areas.insert({
     location: 'Soho',
-    slug_area: 'soho'
+    slug_area: 'soho',
+    image: '/public/images/areas/Soho.jpg'
   });
 
   Areas.insert({
     location: 'Central',
-    slug_area: 'central'
+    slug_area: 'central',
+    image: '/public/images/areas/Central.jpg'
   });
 
   Areas.insert({
     location: 'Lan Kwai Fong',
-    slug_area: 'lan-kwai-fong'
+    slug_area: 'lan-kwai-fong',
+    image: '/public/images/areas/Lan_Kwai_Fong.jpg'
   });
 
   Areas.insert({
     location: 'Sheung Wan',
-    slug_area: 'sheung-wan'
+    slug_area: 'sheung-wan',
+    image: '/public/images/areas/Sheung_Wan.jpg'
   });
 
   Areas.insert({
     location: 'Wan Chai',
-    slug_area: 'wan-chai'
+    slug_area: 'wan-chai',
+    image: '/public/images/areas/Wan_Chai.jpg'
   });
 
   Areas.insert({
     location: 'Kowloon',
-    slug_area: 'kowloon'
+    slug_area: 'kowloon',
+    image: '/public/images/areas/Kowloon.jpg'
   });
 }
 
 if (Invitations.find().count() === 0) {
-
-
   var n = 1;
-  var x = 25;
+  var x = 15;
   var venueCount = Venues.find().count() -1;
   var randomVenue = 1;
-  var venue
+  var venue;
+  var randomEndTime;
+  var randomEndTime;
 
   while (n < x){
 
-    randomVenue = Math.round(Math.random()*venueCount);
+    randomVenue = Math.round(Math.random()*2);
     console.log('random: ' + randomVenue);
     venue = Venues.findOne({},{skip: randomVenue});
-
+    randomStartTime = Math.round(Math.random()*24);
+    randomEndTime = randomStartTime+4;
     //venue = Venues.findOne();
 
     Invitations.insert({
@@ -313,8 +320,8 @@ if (Invitations.find().count() === 0) {
         startDate: new Date(moment({H: 0, m: 1})),
         endDate: new Date(moment({M: 11, H: 23, m: 59})),
         days: ["1","2","3","4","5","6"],
-        timeFrom: 12,
-        timeTo: 18
+        timeFrom: randomStartTime,
+        timeTo: randomEndTime
       },
       updated_at: new Date(),
       created_at: new Date()

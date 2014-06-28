@@ -3,8 +3,18 @@
     <div class="row header">
       <div class="col-sm-6 col-sm-offset-3">
       <div class="row">
+
+          <div class="headline"><a href="{{pathFor 'activity'}}">
+            <span><b>walkin</b>to</span><span>MADE IN
+                                <br>
+                                HONG KONG</span>
+          </a></div>
+
         <div class="col-sm-4">
           <h2 class="logo"><a href="{{pathFor 'activity'}}"><b>walkin</b>to</a></h2>
+
+
+
         </div>
         <div class="col-sm-8">
           <ul class="head-list">
@@ -17,7 +27,7 @@
         </div>
         <a href="{{pathFor 'activity'}}">
           <button class="btn btn-default btn-lg btn-discover text-center">
-            Discover today's walkin's
+            Hong Kong deals
             <span class="glyphicon glyphicon-chevron-right"></span>
           </button>
         </a>
@@ -35,17 +45,81 @@
       </div>
       </div>
     </div>
+
+
   </div>
-        <div class="row quote-box">
-          <div class="container">
-          <div class="col-sm-6 col-sm-offset-3">
-            <img class="walkin-img" src="/images/walkin.png" width="200">
-              <div class="quote">
-                <p>Saying no to champagne is saying no to life. <br><b>walkin</b>to</p>
-              </div>
-            </div>
+
+    <div class="container">
+  <div class="row">
+      <h2 class="link-holder"><span id="city_list">Select an Area</span></h2>
+      <div class="col-md-8">
+        <div class="center-block">
+        <ul class="cityList row-fluid clean">
+          <li class="cityItem cityItem-no-mt">
+            <img src="images/areas/Lan_Kwai_Fong.jpg" width="310" height="150" alt="LKF">
+              <span class="cityItem-title-container">
+                <h4>Lan Kwai Fong</h4>
+                <span class="mask">LKF</span>
+              </span>
+              <a href="{{pathFor 'area' slug_area="lan-kwai-fong"}}">Discover a walkinto »</a>
+          </li>
+
+        <li class="cityItem cityItem-no-mt">
+            <img src="images/areas/Soho.jpg" width="310" height="150" alt="LKF">
+              <span class="cityItem-title-container">
+                <h4>Soho</h4>
+                <span class="mask">LKF</span>
+              </span>
+              <a href="{{pathFor 'area' slug_area="soho"}}">Discover a walkinto »</a>
+          </li>
+
+        <li class="cityItem cityItem-no-mt">
+            <img src="images/areas/Central.jpg" width="310" height="150" alt="LKF">
+              <span class="cityItem-title-container">
+                <h4>Central</h4>
+                <span class="mask">Central</span>
+              </span>
+              <a href="{{pathFor 'area' slug_area="central"}}">Discover a walkinto »</a>
+          </li>
+        <li class="cityItem cityItem-no-mt">
+            <img src="images/areas/Sheung_Wan.jpg" width="310" height="150" alt="LKF">
+              <span class="cityItem-title-container">
+                <h4>Sheung Wan</h4>
+                <span class="mask">Sheung Wan</span>
+              </span>
+              <a href="{{pathFor 'area' slug_area="sheung-wan"}}">Discover a walkinto »</a>
+          </li>
+        <li class="cityItem cityItem-no-mt">
+            <img src="images/areas/Wan_Chai.jpg" width="310" height="150" alt="LKF">
+              <span class="cityItem-title-container">
+                <h4>Wan Chai</h4>
+                <span class="mask">Wan Chai</span>
+              </span>
+              <a href="{{pathFor 'area' slug_area="wan-chai"}}">Discover a walkinto »</a>
+          </li>
+        <li class="cityItem cityItem-no-mt">
+            <img src="images/areas/Kowloon.jpg" width="310" height="150" alt="LKF">
+              <span class="cityItem-title-container">
+                <h4>Kowloon</h4>
+                <span class="mask">Kowloon</span>
+              </span>
+              <a href="{{pathFor 'area' slug_area="kowloon"}}">Discover a walkinto »</a>
+          </li>
+        </ul>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div class="row quote-box">
+    <div class="container">
+      <div class="col-sm-6 col-sm-offset-3">
+        <img class="walkin-img" src="/images/walkin.png" width="200">
+          <div class="quote">
+            <p>Saying no to champagne is saying no to life. <br><b>walkin</b>to</p>
           </div>
       </div>
+    </div>
+  </div>
 
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3">
@@ -61,5 +135,15 @@
         </section>
         </div>
       </div>
-
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2>How does it work?</h2>
+      <ul>
+        <li>Step 1: Select Area</li>
+        <li>Step 2: Pick a walkin invite</li>
+        <li>Step 3: Goto venue</li>
+        <li><b>walkin</b>to is a free service to find the best deals <em>right now</em> in your area</li>
+      </ul>
+    </div>
+  </div>
 </template>

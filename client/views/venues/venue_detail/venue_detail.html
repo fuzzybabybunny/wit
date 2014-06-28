@@ -35,22 +35,44 @@
     <div class="col-sm-9">
       <div class="description">
         <p class="lead">{{profile.description}}</p>
-        <button class="btn btn-success btn-sm">{{followersCount}} Followers</button>
-        {{> FollowVenue}}
       </div>
+      <h3>{{venue_name}}'s Walkin's</h3>
         {{#each invitations}}
-        <div class="invite-summary">
-          <div class="invite-order {{rankOrder}}">
-            #{{this.rank}}
-          </div>
-          <div class="invite-details clearfix">
-            <h4><a href="{{pathFor 'invite' this}}">{{title.full}}</a></h4>
-            <span class="label label-success time-badge">
-                From {{timeFrom}} <br>to {{timeTo}}
+          <div class="offer offer-{{invite.style}}">
+            <div class="offer-expiry text-center">
+              {{#if invite.active}}
+                <div class="offer-status">
+                  <span class="btn btn-success btn-xs">{{invite.status}}</span>
+                </div>
+                <span class="offer-timing">Expiring</span>
+                <span class="offer-time">{{invite.expiry}}</span>
+              {{/if}}
+
+              {{#if invite.soon}}
+                <div class="offer-status">
+                  <span class="btn btn-warning btn-xs">{{invite.status}}</span>
+                </div>
+                <span class="offer-timing">Starting</span>
+                <span class="offer-time">{{invite.expiry}}</span>
+              {{/if}}
+
+              {{#if invite.expired}}
+                <div class="offer-status">
+                  <span class="btn btn-danger btn-xs">{{invite.status}}</span>
+                </div>
+                <span class="offer-timing">Ended</span>
+                <span class="offer-time">{{invite.expiry}}</span>
+              {{/if}}
+
+           </div>
+            <span class="offer-time">
+              <div class=""><b>{{timeFrom}}</b> to <b>{{timeTo}}</b></div>
             </span>
-            <p>{{_id}}</p>
+            <div class="offer-details">
+              <h4><a href="{{pathFor 'invite' this}}">{{title.full}}</a></h4>
+              <h5>{{category}} / {{invite_type}}</h5>
+            </div>
           </div>
-        </div>
         {{/each}}
 
     </div>
@@ -62,6 +84,11 @@
           {{location.formatted_address}}<br>
           <abbr title="Phone">P:</abbr> {{contact.phone}}
         </address>
+        <button class="btn btn-success btn-sm">{{followersCount}} Followers</button>
+        {{#if currentUser}}
+          {{> FollowVenue}}
+        {{/if}}
+
         <ul class="latestUsers">
           <li>Latest Followers:</li>
           {{#each follows}}

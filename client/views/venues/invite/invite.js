@@ -2,12 +2,8 @@
 /* Invite: Event Handlers and Helpers */
 /*****************************************************************************/
 Template.Invite.events({
-  /*
-   * Example:
-   *  'click .selector': function (e, tmpl) {
-   *
-   *  }
-   */
+
+
 });
 
 Template.Invite.helpers({
@@ -28,7 +24,8 @@ Template.Invite.helpers({
     for (i=0; i< 7; i++){
       daysValid[i] = {
         'day': i,
-        'date': moment().add('days',i).format("Do"),
+        'date': moment().add('days',i).format("ddd Do"),
+        'today': moment().add('days', i).format("D ddd"),
         'valid': inviteValid(this.valid, moment().add('days', i))['activeToday']
       };
     }
@@ -47,6 +44,9 @@ Template.Invite.helpers({
   venue: function(){
     console.log('venue_id ' + this.venue_id);
     return Venues.findOne({_id: this.venue_id});
+  },
+  inviteDate: function(){
+    return Session.get('inviteDate');
   }
 
 });

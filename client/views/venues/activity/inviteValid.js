@@ -91,6 +91,10 @@ inviteValid = function(invite, timeTest) {
     results['startDateValid'] *
     results['endDateValid'];
 
+  results['expired'] = results['activeToday'] *
+    !results['activeSoon'] *
+    !results['activeNow'];
+
   results['date'] = timeNow;
 
   return results;
@@ -109,7 +113,13 @@ inviteWidget = function(invite) {
     results['status'] = 'Active Soon';
     results['style'] = 'invite-soon';
     results['expiry'] = timeDiff(timeNow(), invite.timeFrom);
+  } else if (inviteChecked['expired']) {
+    results['expired'] = true;
+    results['status'] = 'Expired';
+    results['style'] = 'invite-expired';
+    results['expiry'] = timeDiff(invite.timeTo, timeNow());
   }
+
 
   var getHour = function(time){
     return time - (time % 1);

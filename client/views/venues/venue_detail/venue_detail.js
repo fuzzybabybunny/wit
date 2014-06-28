@@ -18,6 +18,8 @@ Template.VenueDetail.helpers({
     console.log('invitations called');
     return Invitations.find({
       'venue_id': this._id
+    },{
+      sort: {'valid.timeFrom': 1}
     }).map(function(invitation, index){
       invitation.rank = index + 1;
       return invitation;
@@ -49,7 +51,13 @@ Template.VenueDetail.helpers({
    },
    followersCount: function(){
       return Follows.find({venue_id: this._id}).count();
-   }});
+   },
+   invite: function(){
+    return inviteWidget(this.valid);
+   }
+
+
+ });
 
 /*****************************************************************************/
 /* VenueDetail: Lifecycle Hooks */

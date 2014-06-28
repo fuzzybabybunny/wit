@@ -11,8 +11,8 @@
 
     <div class="row buttonGroup">
       <btn class="btn btn-outline btn-lg selectedGroup" value="activeNow">Walkin's Now</btn>
-      <btn class="btn btn-outline btn-lg" value="activeSoon">Coming Up</btn>
-      <btn class="btn btn-outline btn-lg" value="activeTmrw">Tmrw</btn>
+      <btn class="btn btn-outline btn-lg" value="activeSoon">Later today</btn>
+      <btn class="btn btn-outline btn-lg" value="activeGone">Expired</btn>
       <btn class="btn btn-outline btn-lg" value="updated">Updated</btn>
     </div>
   </div>
@@ -89,8 +89,8 @@
         {{/each}}
     </div>
 
-    <div class="row showTab" id="activeTmrw" style="display: none">
-        {{#each tmrwsInvites}}
+    <div class="row showTab" id="activeGone" style="display: none">
+        {{#each invitesExpired}}
           <div class="col-sm-12">
             <div class="palette-item invite {{selectedClass}}">
             <a href="{{pathFor 'invite'}}">
@@ -98,8 +98,8 @@
             </a>
               <div class="infoBox">
                 <dl>
-                  <dt>Starts in</dt>
-                  <dd>1 day</dd>
+                  <dt>Finished</dt>
+                  <dd>{{inviteExpiringAt}} ago</dd>
                 </dl>
               </div>
               <div class="palette palette-wet-asphalt">

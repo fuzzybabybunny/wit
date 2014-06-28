@@ -69,7 +69,7 @@ Invitations = new Meteor.Collection('invitations', {
       label: "Invite category",
       max: 50,
       optional: true,
-      allowedValues: ['happy hour', 'menu set', 'experience', 'reservation', 'event']
+      allowedValues: ['promotion', 'happy hour', 'menu set', 'experience', 'reservation', 'event']
     },
       "valid.startDate": {
         type: Date,

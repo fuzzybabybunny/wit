@@ -24,7 +24,14 @@ Template.Profile.helpers({
     return user;
    },
    userFollowing: function(){
-      return Follows.find({user_id: Meteor.userId()});
+      var following = Follows.find({user_id: Meteor.userId()});
+
+      following = (following.count() > 0)? following : false;
+      Meteor.call("/get/venue/invites", following.venue_id, function(err, result){
+        console.log('result: '+ result);
+      });
+
+      return following;
    }
 
 });

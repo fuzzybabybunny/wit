@@ -36,17 +36,58 @@ address {
   margin-top: 10px;
 }
 
-.time-badge{
-  float: right;
-  margin-right: 2px 0 10px 0;
+.expiryBlock{
+  background: hsla(0, 0%, 33%, 50%);
+  padding: 10px;
+  height: 100px;
+  color: hsla(0, 0%, 33%, 90%);
+}
+.expiryBlock:hover {
+  background: hsla(0, 0%, 33%, 40%);
 }
 
-.invite-summary:hover{
+.offer-invite-active{
+  border-left: 6px solid hsl(120, 39%, 54%);
+}
+
+.offer-invite-soon{
+  border-left: 6px solid hsl(35, 84%, 62%);
+}
+
+.offer-invite-expired{
+  border-left: 6px solid hsl(0, 0%, 20%);
+}
+
+.offer {
+  padding: 10px;
+  background: rgba(212,221,228,0.5);
+  margin: 5px 0 5px 0;
+  border-radius: 6px;
+
+  .offer-time{
+    float: right;
+    width: 70px
+  }
+
+  .offer-expiry{
+    float: left;
+    padding: 10px 5px 0px 0px;
+    height: 70px;
+    width: 90px;
+  }
+}
+.offer:hover{
   background: #F2F2F2;
   border-radius: 6px;
 }
-.invite-summary{
-  padding: 15px;
+
+.offer-expiry{
+  .offer-timing{
+    font-size: 10px;
+    text-transform: uppercase;
+    color: hsl(0, 0%, 20%);
+    font-weight: 200;
+  }
 }
 
 .main-image {
