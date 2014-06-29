@@ -9,7 +9,6 @@
       "roles": {},
       "autoform": {},
       "noty": {},
-      "googlemaps": {},
       "jade": {}
     },
     "packages": {
@@ -35,23 +34,18 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.9",
-        "commit": "969b17fac5dfec66b6b12bfce4e37471d1a241d4"
+        "tag": "v1.2.10",
+        "commit": "7ccb35de0a6cb0c9a0c3666badd04757e39c09a6"
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.13.0",
-        "commit": "3f294ddf3ed0acae714d5ceb8a806b25cdcd0197"
+        "tag": "v0.13.5",
+        "commit": "27dd5b912eeba687b228a6a7c2c14eef63b12cca"
       },
       "noty": {
         "git": "https://github.com/tabruhn/meteor-noty.git",
         "tag": "v2.2.0",
         "commit": "4edbe6e35a5707add16367d338c1bf53222e6163"
-      },
-      "googlemaps": {
-        "git": "https://github.com/drewjw81/meteor-googlemaps.git",
-        "tag": "v0.0.2",
-        "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
       },
       "jade": {
         "git": "https://github.com/mquandalle/meteor-jade.git",
@@ -75,8 +69,8 @@
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.4.1",
-        "commit": "a9ffc9b285c3af8ad631f9cda4851b0ffc30c5ce"
+        "tag": "v0.4.2",
+        "commit": "4ff4b707bec8be434919730bf101325adb215444"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
