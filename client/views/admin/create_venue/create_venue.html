@@ -1,47 +1,22 @@
 <template name="CreateVenue">
 
 <div class="container">
-<div class="row">
-  <button class="btn btn-lg afBtn">AutoForm</button>
-</div>
-  <div class="col-sm-7">
+  <div class="col-sm-10">
     <div class="row">
-    <h2>Add a venue</h2>
-      {{#autoForm id="venuesCreateForm" type="insert" collection="Venues" doc=venuesDoc}}
-        <div class="panel-body">
-        {{> afQuickField id="fmVenueName" name='venue_name' style="color: orange" label-style="color: grey" class="input-lg"}}
-        {{> afQuickField id="fmLocationFormattedAddress" name='location.formatted_address' style="color: orange" label-style="color: grey" class="input-lg"}}
-        </div>
-      {{/autoForm}}
-
-  Date and Time Picker
-  <input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
-  <input id="mirror_field" value="" readonly>
-  <script type="text/javascript">
-    $(".form_datetime").datetimepicker({
-        format: "dd MM yyyy - hh.ii",
-        showMeridian: true,
-        autoclose: true,
-        todayBtn: true,
-        linkFormat: "yyyy-mm-dd hh:ii",
-        linkField: "mirror_field"
-    });
-    </script>
-
-
-  </div>
-</div>
-  <div class="col-sm-5 offset-col-sm-7">
-    <h2>Live preview</h2>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        {{#if fmVenueName}}<em>{{fmVenueName}}</em>{{else}}Venue Name{{/if}}
-      </div>
-      <div class="panel-body">
-        <address>{{fmLocationFormattedAddress}}</address>
-      </div>
+      <h2>Add a venue</h2>
+      
+        {{#autoForm id="venuesCreateForm" type="insert" collection="Venues" doc=venuesDoc}}
+          <div class="panel-body">
+            <!--{{> afQuickField id="fmVenueName" name='venue_name' style="color: orange" label-style="color: grey" class="input-lg"}} -->
+            <input type="text" id ="fmVenueName">
+            <!--{{> afQuickField id="fmLocationFormattedAddress" name='location.formatted_address' style="color: orange" label-style="color: grey" class="input-lg" }}-->
+          </div>
+        {{/autoForm}}
     </div>
-  </div>
+    <div class="row">
+      <button class="btn btn-lg afBtn">AutoForm</button>
+    </div>
+</div>
   <div class="col-sm-10 autoform" style="display: none">
     <h1>AutoForm:Create a new venue</h1>
       {{> quickForm collection="Venues" id="CreateVenue" type="insert" omitFields="updated_at, created_at"}}
