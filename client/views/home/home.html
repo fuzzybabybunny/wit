@@ -1,33 +1,38 @@
 <template name="Home">
   <div class="container">
     <div class="row header">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-md-6 col-md-offset-3">
       <div class="row">
+          <h2 class="logo center-block">
+            <a href="{{pathFor 'activity'}}">
+              <b>walkin</b>to...
+            </a>
+          </h2>
+          <h5 class="text-center text-uppercase">Hong Kong's deals happening right now</h5>
 
-          <div class="headline"><a href="{{pathFor 'activity'}}">
-            <span><b>walkin</b>to</span><span>MADE IN
-                                <br>
-                                HONG KONG</span>
-          </a></div>
-
-        <div class="col-sm-4">
-          <h2 class="logo"><a href="{{pathFor 'activity'}}"><b>walkin</b>to</a></h2>
-
-
-
+        <div class="row">
+          <div class="current-deals">
+            <div class="col-sm-4">
+              <p class="text-center">
+                <h4>On Now</h4>
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <p class="text-center">
+                <h4>Starting Soon</h4>
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <p class="text-center">
+                <h4>Most Popular</h4>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-8">
-          <ul class="head-list">
-            <li>great venues</li>
-            <li>exciting events</li>
-            <li>amazing deals</li>
-            <li>exclusive experiences</li>
-            <li>instant reservations</li>
-          </ul>
-        </div>
+
         <a href="{{pathFor 'activity'}}">
           <button class="btn btn-default btn-lg btn-discover text-center">
-            Hong Kong deals
+            More Hong Kong deals
             <span class="glyphicon glyphicon-chevron-right"></span>
           </button>
         </a>
@@ -122,6 +127,15 @@
   </div>
 
         <div class="row">
+        <div class="col-sm-8">
+          <ul class="head-list">
+            <li>great venues</li>
+            <li>exciting events</li>
+            <li>amazing deals</li>
+            <li>exclusive experiences</li>
+            <li>instant reservations</li>
+          </ul>
+        </div>
           <div class="col-sm-6 col-sm-offset-3">
             <section class="call-to-action">
             <h2>Walkin to your new favourite place</h2>
