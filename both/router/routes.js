@@ -80,6 +80,11 @@ Router.map(function () {
     template: 'Invite'
   });
 
+  this.route('invite_id', {
+    path: '/areas/:slug_area/:slug_name/invite/:invite_id',
+    template: 'Invite'
+  });
+
   this.route('edit.invite', {
     path: '/areas/:slug_area/:slug_name/invite/:_id/edit',
     template: 'EditInvite'

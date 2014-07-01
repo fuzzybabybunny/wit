@@ -27,7 +27,13 @@
   </div>
 </div>
 <div class="container">
-
+<span class="badge">Views: {{pageViews}}</span>
+<span class="badge">Likes: {{inviteLikes}}</span>
+{{#if findLike}}
+Liked
+{{else}}
+<span class="badge like">Like</span>
+{{/if}}
 <table cellpadding="0" class="cf aU9">
   <tbody>
   <tr>

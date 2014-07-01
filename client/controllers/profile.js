@@ -1,6 +1,9 @@
 ProfileController = RouteController.extend({
   waitOn: function () {
-    return Meteor.subscribe('userVenues');
+    return [
+      Meteor.subscribe('userVenues'),
+      Meteor.subscribe('invitations')
+      ];
   },
 
   data: function () {

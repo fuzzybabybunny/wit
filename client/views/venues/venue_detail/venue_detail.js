@@ -15,11 +15,14 @@ Template.VenueDetail.helpers({
     return this._id;
   },
    invitations: function(){
-    console.log('invitations called');
     return Invitations.find({
-      'venue_id': this._id
+      active: true,
+      'venue_id': this._id,
+      'valid.timeTo': { $gte: timeNow()},
     },{
-      sort: {'valid.timeFrom': 1}
+      sort: {
+        'valid.timeFrom': 1
+      }
     }).map(function(invitation, index){
       invitation.rank = index + 1;
       return invitation;

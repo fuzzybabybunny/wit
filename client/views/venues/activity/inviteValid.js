@@ -103,33 +103,63 @@ inviteValid = function(invite, timeTest) {
 inviteWidget = function(invite) {
   var inviteChecked = inviteValid(invite, moment());
   var results = {};
+  var getHour = function(time){
+    return time - (time % 1);
+  };
+
+  var endHour = moment({h: getHour(invite.timeTo), m: invite.timeTo % 1 * 100}).format("H");
+
   if (inviteChecked['activeNow']) {
     results['active'] = true;
     results['status'] = 'On now';
     results['style'] = 'invite-active';
     results['expiry'] = timeDiff(timeNow(), invite.timeTo);
+    results['endIndex'] = endHour;
   } else if (inviteChecked['activeSoon']) {
     results['soon'] = true;
     results['status'] = 'Active Soon';
     results['style'] = 'invite-soon';
     results['expiry'] = timeDiff(timeNow(), invite.timeFrom);
+    results['endIndex'] = parseInt(endHour) + 24;
   } else if (inviteChecked['expired']) {
     results['expired'] = true;
     results['status'] = 'Expired';
     results['style'] = 'invite-expired';
     results['expiry'] = timeDiff(invite.timeTo, timeNow());
+    results['endIndex'] = parseInt(endHour) + 48;
   }
 
-
-  var getHour = function(time){
-    return time - (time % 1);
-  }
-  var timeFrom =
 
   results['start'] = moment({h: getHour(invite.timeFrom), m: invite.timeFrom % 1 * 100}).format("h.mma");
   results['end'] = moment({h: getHour(invite.timeTo), m: invite.timeTo % 1 * 100}).format("h.mma");
 
   return results;
+};
+
+getVenueInviteCount = function(venue_id){
+  var invites = Invitations.find({venue_id: venue_id}).fetch();
+  var invitesValid = _.pluck(invites, "valid");
+  var inviteCount=[];
+  inviteCount["active"] = 0;
+  inviteCount["soon"] = 0;
+  inviteCount["expired"] = 0;
+  inviteCount["total"] = 0;
+
+  _.map(invitesValid, function(valid){
+    invite = inviteWidget(valid);
+    //console.log(invite);
+    inviteCount["active"] += (invite['active'])? 1 : 0;
+    inviteCount["soon"] += (invite['soon'])? 1 : 0;
+    inviteCount["expired"] += (invite['expired'])? 1 : 0;
+    inviteCount["total"] += 1;
+
+  });
+  return inviteCount;
+};
+
+getInviteStatus = function(invite_id){
+  var invite = Invitations.findOne({_id: invite_id});
+  return inviteWidget(invite.valid);
 };
 
 

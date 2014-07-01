@@ -298,7 +298,7 @@ if (Invitations.find().count() === 0) {
     console.log('random: ' + randomVenue);
     venue = Venues.findOne({},{skip: randomVenue});
     randomStartTime = Math.round(Math.random()*24);
-    randomEndTime = randomStartTime+4;
+    randomEndTime = Math.min(23.59,randomStartTime+4);
     //venue = Venues.findOne();
 
     Invitations.insert({
@@ -315,7 +315,7 @@ if (Invitations.find().count() === 0) {
       },
       description: 'Enjoy a Peroni on the house at [name]',
       invite_type: 'public',
-      category: "happy hour",
+      category: "drink",
       valid: {
         startDate: new Date(moment({H: 0, m: 1})),
         endDate: new Date(moment({M: 11, H: 23, m: 59})),
@@ -323,6 +323,8 @@ if (Invitations.find().count() === 0) {
         timeFrom: randomStartTime,
         timeTo: randomEndTime
       },
+      views: 0,
+      likes: 0,
       updated_at: new Date(),
       created_at: new Date()
     });

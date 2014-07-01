@@ -69,7 +69,7 @@ Invitations = new Meteor.Collection('invitations', {
       label: "Invite category",
       max: 50,
       optional: true,
-      allowedValues: ['promotion', 'happy hour', 'menu set', 'experience', 'reservation', 'event']
+      allowedValues: ['promotion', 'drink', 'food', 'experience', 'reservation', 'event']
     },
       "valid.startDate": {
         type: Date,
@@ -95,8 +95,18 @@ Invitations = new Meteor.Collection('invitations', {
         type: [String],
         minCount: 0,
         maxCount: 7,
-        label: 'mon, tues',
+        label: 'Sunday = 0, Monday = 1 etc',
         allowedValues: ["0","1","2","3","4","5","6"],
+        optional: true
+      },
+      views: {
+        type: Number,
+        label: "Page views of the invite",
+        optional: true
+      },
+      likes: {
+        type: Number,
+        label: "Users liking the invite",
         optional: true
       },
 

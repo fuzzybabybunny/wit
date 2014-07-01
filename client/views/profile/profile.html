@@ -1,18 +1,65 @@
 <template name="Profile">
 <div class="container">
-  <div>
+  <div class="row">
+
+  <div class="col-md-6 col-md-offset-3">
     <h3>Hello {{username}},</h3>
-    <h4>Venues followed:</h4>
+    <h4>My venues</h4>
+
+  <div class="venues-followed">
     {{#if userFollowing}}
+    <ul class="nav nav-pills nav-stacked">
       {{#each userFollowing}}
-        <p><a href="{{pathFor 'venue.detail' userFollowing}}">{{venue_name}}</a></p>
+        <li>
+          <a href="{{pathFor 'venue.detail' userFollowing}}">
+
+          {{#if active_invites}}
+            <span class="label label-success pull-right">{{active_invites}}</span>
+          {{/if}}
+
+          {{#if soon_invites}}
+            <span class="label label-warning pull-right">{{soon_invites}}</span>
+          {{/if}}
+
+
+            {{venue_name}}
+          </a>
+        </li>
       {{/each}}
+    </ul>
     {{else}}
-      <p><em>You are currnetly not following any venues. <br>
-      Start following venues to easily track your favourite venues.</em></p>
+      <p>
+      <em>You are currnetly not following any venues.</em>
+      </p>
     {{/if}}
-    <h4>Walkins:</h4>
-    <h4>Comments:</h4>
+</div>
+
+      {{#each venues}}
+        <p>Venue: {{[0]}}</p>
+      {{/each}}
+
+    <h4>Invitatons saved</h4>
+    {{#each saves}}
+      <p>
+      {{#if status.active}}
+        <span class="label label-success">{{status.status}}</span>
+        <span>Expires: {{status.expiry}}</span>
+      {{/if}}
+
+      {{#if status.soon}}
+        <span class="label label-warning">{{status.status}}</span>
+      {{/if}}
+
+      {{#if status.expired}}
+        <span class="label label-default">{{status.status}}</span>
+      {{/if}}
+
+        <a href="{{pathFor 'invite_id' this}}">{{invite_name}}</a>,
+        <a href="{{pathFor 'venue.detail' saves}}">{{venue_name}}</a>
+
+      </p>
+    {{/each}}
   </div>
+</div>
 </div>
 </template>
