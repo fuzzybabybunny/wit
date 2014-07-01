@@ -298,7 +298,7 @@ if (Invitations.find().count() === 0) {
     console.log('random: ' + randomVenue);
     venue = Venues.findOne({},{skip: randomVenue});
     randomStartTime = Math.round(Math.random()*24);
-    randomEndTime = Math.min(23.59,randomStartTime+4);
+    randomEndTime = Math.min(23,randomStartTime+4);
     //venue = Venues.findOne();
 
     Invitations.insert({
@@ -324,7 +324,7 @@ if (Invitations.find().count() === 0) {
         timeTo: randomEndTime
       },
       views: 0,
-      likes: 0,
+      saved: 0,
       updated_at: new Date(),
       created_at: new Date()
     });

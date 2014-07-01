@@ -27,7 +27,7 @@ Template.Profile.helpers({
     var saves = Meteor.users.find({
       _id: Meteor.userId()
     },{
-      fields: { 'profile.likes': 1 },
+      fields: { 'profile.saved': 1 },
       sort: { added_at: -1 }
     }).fetch();
 
@@ -35,7 +35,7 @@ Template.Profile.helpers({
       _.flatten(
         _.pluck(
           _.pluck(saves, 'profile'),
-          "likes"),
+          "saved"),
         true
       );
 

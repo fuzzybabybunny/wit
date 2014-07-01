@@ -6,14 +6,14 @@ Template.Invite.events({
     Invitations.update({
       _id: this._id
     },{
-      $inc: {likes: 1}
+      $inc: {saved: 1}
     });
 
     Meteor.users.update({
       _id: Meteor.userId()
     },{
       $push: {
-        'profile.likes':
+        'profile.saved':
           {
             invite_id: this._id,
             invite_name: this.title.brief,
@@ -54,17 +54,17 @@ Template.Invite.helpers({
     console.log(daysValid);
     return daysValid;
   },
-  findLike: function(){
-    return findLike = Meteor.users.findOne({
+  findSaved: function(){
+    return findSaved = Meteor.users.findOne({
       _id: Meteor.userId(),
-      'profile.likes.invite_id': this._id
+      'profile.saved.invite_id': this._id
     });
   },
   pageViews: function(){
     return this.views;
   },
-  inviteLikes: function(){
-    return this.likes;
+  inviteSaved: function(){
+    return this.saved;
   },
   inviteWidget: function(){
     return inviteWidget(this.valid, moment());
