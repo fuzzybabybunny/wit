@@ -3,42 +3,55 @@
   <div class="row">
 
   <div class="col-md-6 col-md-offset-3">
-    <h3>Hello {{username}},</h3>
-    <h4>My venues</h4>
-
-  <div class="venues-followed">
-    {{#if userFollowing}}
-    <ul class="nav nav-pills nav-stacked">
-      {{#each userFollowing}}
-        <li>
-          <a href="{{pathFor 'venue.detail' userFollowing}}">
-
-          {{#if active_invites}}
-            <span class="label label-success pull-right">{{active_invites}}</span>
-          {{/if}}
-
-          {{#if soon_invites}}
-            <span class="label label-warning pull-right">{{soon_invites}}</span>
-          {{/if}}
-
-
-            {{venue_name}}
-          </a>
-        </li>
-      {{/each}}
-    </ul>
+    <div class="row">
+    <div class="profile-image">
+    {{#if profileImage}}
+      <img src="{{profileImage.url}}/convert?w=100&h=125" alt="" class="img-rounded">
     {{else}}
-      <p>
-      <em>You are currnetly not following any venues.</em>
-      </p>
+      <img src="https://www.filepicker.io/api/file/QVUpXFKISOGH8lIvAzXj/convert?w=100&h=125" alt="" class="img-rounded">
     {{/if}}
-</div>
+      <br><button href="" class="btn btn-link btn-xs edit-image">update photo</button>
+
+
+    </div>
+    <h3>Hello {{username}},</h3>
+    <h5>Following <b>{{followCount}}</b> venues</h5>
+    <h5><b>{{stashCount}}</b> invitations stashed</h5>
+  </div>
+  <section class="clearfix">
+      <div class="row">
+          <h4>My venues</h4>
+        <div class="venues-followed">
+          {{#if userFollowing}}
+          <ul class="nav nav-pills nav-stacked">
+            {{#each userFollowing}}
+              <li>
+                <a href="{{pathFor 'venue.detail' userFollowing}}">
+                {{#if active_invites}}
+                  <span class="label label-success pull-right">{{active_invites}}</span>
+                {{/if}}
+                {{#if soon_invites}}
+                  <span class="label label-warning pull-right">{{soon_invites}}</span>
+                {{/if}}
+                  {{venue_name}}
+                </a>
+              </li>
+            {{/each}}
+          </ul>
+          {{else}}
+            <p>
+            <em>You are currnetly not following any venues.</em>
+            </p>
+          {{/if}}
+        </div>
+      </div>
+  </section>
 
       {{#each venues}}
         <p>Venue: {{[0]}}</p>
       {{/each}}
 
-    <h4>Invitatons saved</h4>
+    <h4>Invitatons stashed</h4>
     {{#each saves}}
       <p>
       {{#if status.active}}

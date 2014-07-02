@@ -24,12 +24,12 @@ Template.EditVenue.events({
 
           var venue = Venues.findOne({'_id': id});
           var images = venue.images;
-          console.log('images: ' + JSON.stringify(images));
+          //console.log('images: ' + JSON.stringify(images));
 
           images.push(InkBlob);
           //_.extend(images, JSON.stringify(InkBlob));
 
-          console.log('images + push: ' + images);
+          //console.log('images + push: ' + images);
           Venues.update({ _id: id },{ $set: {'images': images }});
 
         },

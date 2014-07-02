@@ -2,21 +2,57 @@
 /* Profile: Event Handlers and Helpers */
 /*****************************************************************************/
 Template.Profile.events({
-  /*
-   * Example:
-   *  'click .selector': function (e, tmpl) {
-   *
-   *  }
-   */
+   'click .edit-image': function(e, tmpl){
+      e.preventDefault;
+      id = this._id;
+      filepicker.pick({
+          mimetypes: ['image/*', 'text/plain'],
+          container: 'window',
+          //services:['COMPUTER', 'FACEBOOK', 'GMAIL', 'INSTAGRAM'],
+
+        },
+        function(InkBlob){
+          var user = Meteor.users.findOne({'_id': Meteor.userId()});
+          var images = [];
+
+          _.extend(InkBlob, {'type': 'profile'});
+          images.push(InkBlob);
+          console.log('InkBlob + extend:' + JSON.stringify(images));
+
+          var existingImages = user.profile.images;
+          var result = [];
+          var removedProfileImage = _.each(existingImages, function(image){
+            if(image.type != 'profile'){
+              result.push(image);
+            } else{
+              filepicker.remove(image, function(){
+                  console.log("Removed");
+              });
+            }
+          });
+
+          images.push(result);
+          console.log('images: ' + JSON.stringify(images));
+          //_.extend(images, JSON.stringify(InkBlob));
+          images = _.flatten(images);
+          console.log( JSON.stringify(images));
+          Meteor.users.update({ _id: id },{ $set: {'profile.images': images }});
+
+        },
+        function(FPError){
+          console.log(FPError.toString());
+        }
+      );
+    }
 });
 
 Template.Profile.helpers({
-  /*
-   * Example:
-   *  items: function () {
-   *    return Items.find();
-   *  }
-   */
+  profileImage: function(){
+    var user = Meteor.users.findOne({_id: Meteor.userId()});
+    var images = user.profile.images;
+    //console.log(_.findWhere(images, {type: "profile"}));
+    return _.findWhere(images, {type: "profile"});
+  },
    user: function(){
     var user = Meteor.users.findOne();
     Session.set('username', user.username);
@@ -47,6 +83,7 @@ Template.Profile.helpers({
       saves = _.sortBy(saves, function(invite){
         return parseInt(invite["status"]["endIndex"]);
       });
+      Session.set('stashCount', _.size(saves));
 
     return saves;
    },
@@ -68,17 +105,21 @@ Template.Profile.helpers({
           }
         }).fetch();
 
-      console.log(following);
+      //console.log(following);
       following = (_.size(following) > 0)? following : false;
       //console.log('venue_id: ' + following);
 
       return following;
+   },
+   followCount: function(){
+      return Follows.find({user_id: Meteor.userId()}).count();
+   },
+   stashCount: function(){
+      var stashCount = Session.get('stashCount')? Session.get('stashCount') : 0;
+      return Session.get('stashCount');
    }
+
 });
-
-var findSavedInvites = function(){
-
-};
 
 /*****************************************************************************/
 /* Profile: Lifecycle Hooks */
