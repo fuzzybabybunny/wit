@@ -1,25 +1,49 @@
 <template name="CreateVenue">
-
 <div class="container">
-  <div class="col-sm-10">
     <div class="row">
       <h2>Add a venue</h2>
-      
-        {{#autoForm id="venuesCreateForm" type="insert" collection="Venues" doc=venuesDoc}}
+        {{#autoForm validation="blur" id="venuesCreateForm" type="insert" collection="Venues" doc=venuesDoc}}
           <div class="panel-body">
-            <!--{{> afQuickField id="fmVenueName" name='venue_name' style="color: orange" label-style="color: grey" class="input-lg"}} -->
-            <input type="text" id ="fmVenueName">
-            <!--{{> afQuickField id="fmLocationFormattedAddress" name='location.formatted_address' style="color: orange" label-style="color: grey" class="input-lg" }}-->
+            {{> afQuickField id="fmVenueName" name='venue_name' style="color: orange" label-style="color: grey" class="input-lg venName"}} 
+            {{> CreateVenueMapAddr}}
           </div>
         {{/autoForm}}
     </div>
-    <div class="row">
-      <button class="btn btn-lg afBtn">AutoForm</button>
+</div>
+</template>
+
+<template name="CreateVenueMapAddr">
+  <div id="autofields">
+    <div class="col-sm-9">
+      <div class="row ">
+        <ul class="list-group">
+
+          {{> afQuickField id="fmLocationFormattedAddress" name='location.formatted_address' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmLocationCountry" name='location.country' style="color: orange" label-style="color: grey" class="input-lg" options="allowed"}} 
+          {{> afQuickField id="fmLocationSubway" name='location.subway' style="color: orange" label-style="color: grey" class="input-lg" }} 
+          {{> afQuickField id="fmLocationQuickDirections" name='location.quick_directions' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmLocationLatLng" name='location.latlng' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmVenueType" name='venue_type' style="color: orange" label-style="color: grey" class="input-lg" options="allowed"}} 
+          {{> afQuickField id="fmSlugArea" name='slug_area' style="color: orange" label-style="color: grey" class="input-lg" options="allowed"}} 
+          {{> afQuickField id="fmSlugName" name='slug_name' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmContactManager" name='contact.manager' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmContactPhone" name='contact.phone' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmContactEmail" name='contact.email' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmContactUrl" name='contact.url' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmProfile" name='profile' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          {{> afQuickField id="fmOpen" name='open' style="color: orange" label-style="color: grey" class="input-lg"}} 
+          <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Add Venue</button>
+          </div>
+        </ul>
+      </div>
     </div>
-</div>
-  <div class="col-sm-10 autoform" style="display: none">
-    <h1>AutoForm:Create a new venue</h1>
-      {{> quickForm collection="Venues" id="CreateVenue" type="insert" omitFields="updated_at, created_at"}}
+    <div class="col-sm-3 col-sm-9-offset">
+      <div class="row map-nav">
+        <!--{{ renderMap }}-->
+        <div id="map-canvas">
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </template>
