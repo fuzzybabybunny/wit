@@ -205,7 +205,7 @@ getInvites = function(type){
       var invitesExtended = _.map(invites, function(invite){
           invite = _.extend(invite, {
             timingShow: true,
-            timing: timeDiff(this.valid.timeFrom, timeNow()),
+            timing: timeDiff(invite.valid.timeFrom, timeNow()),
             timingLabel: 'expires'
           });
           console.log(invite);
