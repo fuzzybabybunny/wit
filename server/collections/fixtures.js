@@ -79,10 +79,10 @@ if (Venues.find().count() === 0) {
   });
 
   Venues.insert({
-    venue_name: "The Globe",
+    venue_name: "The Spot",
     venue_type: "bar",
     slug_area: "soho",
-    slug_name: "thegloble",
+    slug_name: "the-spot",
     contact: {
         manager: "Keith",
         phone: "+852 2399 0737",
@@ -113,7 +113,7 @@ if (Venues.find().count() === 0) {
         building: "The L. Place",
         country: "Hong Kong",
         floor: "Ground Floor",
-        formatted_address: "G/F, The L. Place\n139 Queen's Road Central, \nHong Kong",
+        formatted_address: "1/F, The L. Place\n139 Queen's Road Central, \nHong Kong",
         quick_directions: "Take exit A from Hong Kong MTR",
         suburb: "Central",
         subway: "Hong Kong",
@@ -190,12 +190,12 @@ if (Venues.find().count() === 0) {
         }
     ],
     location: {
-        address: "139 Queen's Road",
+        address: "120 Queen's Road",
         area: "Hong Kong Island",
         building: "The L. Place",
         country: "Hong Kong",
         floor: "Ground Floor",
-        formatted_address: "G/F, The L. Place\n139 Queen's Road Central, \nHong Kong",
+        formatted_address: "G/F, The L. Place\n120 Queen's Road Central, \nHong Kong",
         quick_directions: "Take exit A from Hong Kong MTR",
         suburb: "Central",
         subway: "Hong Kong",
