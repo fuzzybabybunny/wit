@@ -1,3 +1,6 @@
+areasArray = _.pluck(Areas.find({},{fields: {_id:0,location:0}}).fetch(),"slug_area");
+//console.log(areasArray);
+//console.log(['bar','restaurant','cafe','shop','nightclub','hotel']);
 Venues = new Meteor.Collection('venues', {
   schema: new SimpleSchema({
     venue_name: {
@@ -10,12 +13,14 @@ Venues = new Meteor.Collection('venues', {
       type: String,
       label: "Friendly name for URL",
       max: 20,
-        optional: true
+        optional: true,
+        unique:true
     },
     slug_area: {
       type: String,
       label: "Friendly location for URL",
       max: 20,
+      allowedValues: ['soho','central','lan-kwai-fong','sheung-wan','wan-chai','kowloon'],
         optional: true
     },
     venue_type: {
@@ -36,7 +41,8 @@ Venues = new Meteor.Collection('venues', {
         type: String,
         label: "Formatted Address (i.e. G/F, The L Place, 139 Queen's Road Central, Hong Kong",
         max: 200,
-        optional: true
+        optional: true,
+        unique: true
       },
       "location.floor": {
         type: String,
@@ -83,7 +89,7 @@ Venues = new Meteor.Collection('venues', {
       },
       "location.subway": {
         type: String,
-        label: "Closet subway exit",
+        label: "Closest subway exit",
         max: 50,
         optional: true,
       },
@@ -97,7 +103,9 @@ Venues = new Meteor.Collection('venues', {
         type: [Number],
         decimal:true,
         label: "Location geohash coordinate pair",
-        optional: false
+        optional: false,
+        maxCount:2,
+        minCount:2
       },
 
 //*********************
@@ -212,7 +220,7 @@ Venues = new Meteor.Collection('venues', {
         label: "Private rooms available?",
         optional: true
       },
-      "profile.private_room": {
+      "profile.michelin": {
         type: Boolean,
         label: "Michelin Star?",
         optional: true
@@ -310,44 +318,6 @@ Venues = new Meteor.Collection('venues', {
         label: "Venue logo image: enter url from Images",
         optional: true
       },
-
-//*********************
-//
-//    ITEMS
-//
-//*********************
-
-    "items.$.item_name": {
-      type: String,
-      label: "Description of item for sale, include brand if possible: Hoegaarden Beer etc",
-      max: 100,
-      optional: true
-    },
-    "items.$.price": {
-      type: Number,
-      label: "Price of the item (numbers only 64)",
-      optional: true
-    },
-    "items.$.currency": {
-      type: String,
-      label: "Currency: HKD, USD, AUD, CNY",
-      allowedValues: ["HKD", "USD", "CNY", "PHP", "AUD"],
-      max: 20,
-      optional: true
-    },
-    "items.$.unit": {
-      type: String,
-      label: "Unit being sold: Pint, Entree, Main Meal",
-      allowedValues: ["Pint", "Glass", "Shot", "Starter", "Main Meal", "Unit", "Cup"],
-      max: 200,
-      optional: true
-    },
-    "items.$.comments": {
-      type: String,
-      label: "Comments on the item",
-      max: 300,
-      optional: true
-    },
 
 //*********************
 //

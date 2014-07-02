@@ -1,6 +1,7 @@
 CreateVenueController = RouteController.extend({
   waitOn: function () {
-    return Meteor.subscribe('venues');
+    Meteor.subscribe('areas');
+    Meteor.subscribe('venues');
   },
 
   data: function () {
