@@ -41,6 +41,23 @@ Template.Invite.helpers({
   activeSoon: function(){
     return inviteValid(this.valid, moment())['activeSoon'];
   },
+  validDays: function(){
+    var days = this.valid.days;
+    console.log(days);
+    var week = new Array();
+    var dayNames = ["S","M","T","W","T","F","S"];
+
+    for (i = 0; i < 7; i++){
+      console.log(i);
+      if (days[i]){
+        week[i] = {day: dayNames[i], active: true};
+      } else{
+        week[i] = {day: dayNames[i], active: false};
+      };
+    }
+    console.log(week);
+    return week;
+  },
   validNextSevenDays: function(){
     var daysValid = [];
     for (i=0; i< 7; i++){

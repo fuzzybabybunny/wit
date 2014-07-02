@@ -1,14 +1,11 @@
 <template name="WeekForecast">
-  <div class="week-forecast text-center">
-    <p>offer validity over the next 7 days</p>
-    <ul class="pagination">
+  <div id="day-forecast">
+  <ul>
     {{#each this}}
-      <li class="{{#if this.valid}} invite-valid {{else}} no-invite{{/if}}" name="day" value="i">
-        <a class="forcastDay" href="">
-          {{this.date}}
-        </a>
+      <li class="{{#if active}} inviteAvail {{else}} inviteNoAvail {{/if}}">
+          {{day}}
       </li>
     {{/each}}
-    </ul>
+  </ul>
   </div>
 </template>

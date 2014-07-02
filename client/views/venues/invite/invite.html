@@ -27,13 +27,7 @@
   </div>
 </div>
 <div class="container">
-<span class="badge">Views: {{pageViews}}</span>
-<span class="badge">Stashes: {{inviteStash}}</span>
-{{#if findStash}}
-Invitation stashed
-{{else}}
-<span class="badge stash">Stash Invitation</span>
-{{/if}}
+
 
 <div class="container">
   <div class="row">
@@ -55,7 +49,7 @@ Invitation stashed
               <div class="row">
                 <div class="col-md-12">
                   <div class="invite-block-name text-center">
-                    Venue Name, Area
+                    {{venue_name}}, {{venue_area}}
                   </div>
                 </div>
               </div>
@@ -63,7 +57,7 @@ Invitation stashed
               <div class="row">
                 <div class="col-md-12">
                   <div class="invite-block-subtitle text-center">
-                    Sub-title
+                    {{title.full}}
                   </div>
                 </div>
               </div>
@@ -71,7 +65,7 @@ Invitation stashed
               <div class="row">
                 <div class="col-md-12">
                   <div class="invite-block-description text-center">
-                    description
+                    {{description}}
                   </div>
                 </div>
               </div>
@@ -84,7 +78,7 @@ Invitation stashed
                       type of invitation
                     </div>
                    <div class="invite-block-body">
-                     public offer / no reservation required
+                     <b>{{category}} / {{invite_type}}</b>
                    </div>
                   </div>
                 </div>
@@ -98,9 +92,9 @@ Invitation stashed
                       when
                     </div>
                    <div class="invite-block-body">
-                    <div>6.00pm to 8pm</div>
-                    <div>1st June to 1st November</div>
-                    <div>days valid</div>
+                    <div><b>{{inviteWidget.start}} to {{inviteWidget.end}}</b></div>
+                    <div><b>{{starts}} to {{ends}}</b></div>
+                    <div><b>{{> WeekForecast validDays}}</b></div>
                    </div>
                   </div>
                 </div>
@@ -113,12 +107,35 @@ Invitation stashed
                     <div class="invite-block-heading">
                       where
                     </div>
-                   <div class="invite-body">
-                    <div>1 Lyndhurst Terrace, Soho Hong Kong</div>
+                   <div class="invite-block-body">
+                    <div>{{venue.location.formatted_address}}</div>
                    </div>
                   </div>
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="invite-block-invitation">
+                    <hr>
+                    <div class="invite-block-heading">
+                      popularity
+                    </div>
+                   <div class="invite-block-body">
+                    <div>
+                      <div>Views: {{pageViews}}</div>
+                      <div>Stashes: {{inviteStash}}</div>
+                      {{#if findStash}}
+                      You have this invite stashed.
+                      {{else}}
+                      <span class="badge badge-default stash">Stash Invitation?</span>
+                      {{/if}}
+                    </div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+
 
             </div>
           </div>
@@ -130,63 +147,9 @@ Invitation stashed
 </div>
 
 
-
-
-
-
-
-<table cellpadding="0" class="cf aU9">
-  <tbody>
-  <tr>
-    <td class="aRi {{inviteWidget.style}}">
-      <div class="aU5">
-        <span class="aRh">Jul</span>
-        <span class="aRg">26</span>
-        <span class="aRj">Sat</span>
-      </div>
-      {{> InviteWidget inviteWidget}}
-    </td>
-    <td style="width:52%" class="aU4">
-      <div class="aRo">{{title.full}}</div>
-      <div class="aRn">
-        <a class="e" href="{{pathFor 'venue.detail'}}">@{{venue_name}}</a>
-      </div>
-      <div class="aU6">
-        {{description}}
-      </div>
-      <table class="cf aU2">
-        <tbody>
-          <tr>
-            <td class="aRk">Type</td>
-            <td id=":1za" class="aU6">{{category}} / {{invite_type}}</td>
-          </tr>
-          <tr>
-            <td class="aRk">When</td>
-            <td id=":25j" class="aU6">{{starts}} - {{inviteWidget.start}} to {{inviteWidget.end}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
-    <td class="aRc">
-      <div class="aQ3">
-        <div class="aRo">Location</div>
-        <div class="aRn">{{venue.location.formatted_address}}</div>
-        <table id=":1zb" class="cf aU2" style="table-layout:auto">
-          <tbody>
-            <tr class="aU0">
-              <td class="aQ5" colspan="2"><i>No earlier events</i></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </td>
-  </tr>
-</tbody>
-</table>
-
   <div class="col-sm-12">
 
-    {{> WeekForecast validNextSevenDays}}
+
 
   </div>
 

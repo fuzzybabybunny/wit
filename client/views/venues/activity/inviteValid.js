@@ -96,6 +96,7 @@ inviteValid = function(invite, timeTest) {
     !results['activeNow'];
 
   results['date'] = timeNow;
+  results['day'] = dayOfWeek;
 
   return results;
 };

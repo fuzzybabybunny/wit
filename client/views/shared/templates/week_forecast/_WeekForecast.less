@@ -1,3 +1,48 @@
+#day-forecast ul
+{
+margin: 0;
+padding: 5px 0 0 0;
+list-style-type: none;
+text-align: left;
+}
+
+#day-forecast ul li { display: inline; }
+
+#day-forecast ul li
+{
+  text-decoration: none;
+  padding: 2px 4px 2px 4px;
+  color: #fff;
+  border: 1px solid white;
+  width: 5px;
+  font-family: 'chunkfiveroman';
+  text-transform: uppercase;
+
+  &.inviteAvail{
+      background-color: hsl(168, 76%, 42%);
+  }
+
+  &.inviteNoAvail{
+    background-color: hsl(0, 0%, 60%);
+  }
+}
+
+
+
+
+
+li.no-invite {
+  background: hsl(0, 0%, 60%);
+  text-decoration: line-through;
+
+  a.forecastDay {
+    text-decoration: line-through;
+  }
+}
+
+
+
+
 .pagination > li.invite-valid > a {
   background: hsl(120, 39%, 54%);
   color: hsl(220, 10%, 94%);
@@ -10,15 +55,6 @@
   font-weight: 300;
   opacity: 0.8;
   font-size: 14px;
-}
-
-li.no-invite {
-  background: hsl(0, 0%, 60%);
-  text-decoration: line-through;
-
-  a.forecastDay {
-    text-decoration: line-through;
-  }
 }
 
 .week-forecast > p {
