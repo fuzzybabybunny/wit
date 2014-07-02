@@ -14,22 +14,14 @@ Template.VenueDetail.helpers({
   getVenueId: function(){
     return this._id;
   },
-   invitations: function(){
-    return Invitations.find({
-      active: true,
-      'venue_id': this._id,
-      'valid.timeTo': { $gte: timeNow()},
-    },{
-      sort: {
-        'valid.timeFrom': 1
-      }
-    }).map(function(invitation, index){
-      invitation.rank = index + 1;
-      return invitation;
-    })
+   invitesActiveNow: function(){
+      return getInvites('active', this._id);
+   },
+   invitesActiveSoon: function(){
+      return getInvites('soon', this._id);
    },
    rankOrder: function(){
-      if (this.active == true){
+      if (this.active === true){
         return 'valid';
       } else{
         return 'inactive';

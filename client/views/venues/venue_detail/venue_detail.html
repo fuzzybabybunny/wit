@@ -37,44 +37,13 @@
         <p class="lead">{{profile.description}}</p>
       </div>
       <h3>Today at {{venue_name}}</h3>
-        {{#if invitations}}
-          {{#each invitations}}
-            <div class="offer offer-{{invite.style}}">
-              <div class="offer-expiry text-center">
-                {{#if invite.active}}
-                  <div class="offer-status">
-                    <span class="btn btn-success btn-xs">{{invite.status}}</span>
-                  </div>
-                  <span class="offer-timing">Expiring</span>
-                  <span class="offer-time">{{invite.expiry}}</span>
-                {{/if}}
+      {{#each invitesActiveNow}}
+        {{> InviteMedium this}}
+      {{/each}}
 
-                {{#if invite.soon}}
-                  <div class="offer-status">
-                    <span class="btn btn-warning btn-xs">{{invite.status}}</span>
-                  </div>
-                  <span class="offer-timing">Starting</span>
-                  <span class="offer-time">{{invite.expiry}}</span>
-                {{/if}}
-
-                {{#if invite.expired}}
-                  <div class="offer-status">
-                    <span class="btn btn-danger btn-xs">{{invite.status}}</span>
-                  </div>
-                  <span class="offer-timing">Ended</span>
-                  <span class="offer-time">{{invite.expiry}}</span>
-                {{/if}}
-
-             </div>
-              <div class="offer-details">
-                <h4><a href="{{pathFor 'invite' this}}">{{title.full}}</a></h4>
-                <h5>{{category}} / {{invite_type}}</h5>
-              </div>
-            </div>
-          {{/each}}
-        {{else}}
-          <em>No deals or great offers today.</em>
-        {{/if}}
+      {{#each invitesActiveSoon}}
+        {{> InviteMedium this}}
+      {{/each}}
 
     </div>
     <div class="col-sm-3">

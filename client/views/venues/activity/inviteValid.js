@@ -112,19 +112,19 @@ inviteWidget = function(invite) {
 
   if (inviteChecked['activeNow']) {
     results['active'] = true;
-    results['status'] = 'On now';
+    results['status'] = 'active';
     results['style'] = 'invite-active';
     results['expiry'] = timeDiff(timeNow(), invite.timeTo);
     results['endIndex'] = endHour;
   } else if (inviteChecked['activeSoon']) {
     results['soon'] = true;
-    results['status'] = 'Active Soon';
+    results['status'] = 'soon';
     results['style'] = 'invite-soon';
     results['expiry'] = timeDiff(timeNow(), invite.timeFrom);
     results['endIndex'] = parseInt(endHour) + 24;
   } else if (inviteChecked['expired']) {
     results['expired'] = true;
-    results['status'] = 'Expired';
+    results['status'] = 'expired';
     results['style'] = 'invite-expired';
     results['expiry'] = timeDiff(invite.timeTo, timeNow());
     results['endIndex'] = parseInt(endHour) + 48;
@@ -163,17 +163,24 @@ getInviteStatus = function(invite_id){
   return inviteWidget(invite.valid);
 };
 
-getInvites = function(type){
+getInvites = function(type, venue_id){
   var invites;
+  var queryFilter;
   if(type == 'active'){
-      invites = Invitations.find({
+
+      queryFilter = {
         active: true,
         'valid.days': { $in: [getDay()] },
         'valid.endDate': { $gte: getDate(0)},
         'valid.startDate': { $lt:  getDate(1)},
         'valid.timeTo': { $gte: timeNow()},
         'valid.timeFrom': { $lt: timeNow()}
-      },{
+        };
+
+        venue_id ? _.extend(queryFilter, {'venue_id': venue_id}) : '';
+
+
+      invites = Invitations.find(queryFilter,{
         sort: { 'valid.timeTo':1 }
 
       }).fetch();
@@ -184,20 +191,26 @@ getInvites = function(type){
           invite = _.extend(invite, {
             timingShow: true,
             timing: timeDiff(timeNow(), invite.valid.timeTo),
-            timingLabel: 'expires'
+            timingLabel: 'expires',
+            status: 'active'
           });
           console.log(invite);
           return invite;
       });
   } else if( type == 'soon'){
-    invites = Invitations.find({
+
+    queryFilter = {
       active: true,
       'valid.days': { $in: [getDay()] },
       'valid.endDate': { $gte: getDate(0)},
       'valid.startDate': { $lt:  getDate(1)},
       'valid.timeTo': { $gte: timeNow()},
       'valid.timeFrom': { $gte: timeNow()}
-    },{
+    };
+
+    venue_id ? _.extend(queryFilter, {'venue_id': venue_id}) : '';
+
+    invites = Invitations.find(queryFilter, {
       sort: { 'valid.timeFrom':1 }
     }).fetch();
 
@@ -206,8 +219,9 @@ getInvites = function(type){
       var invitesExtended = _.map(invites, function(invite){
           invite = _.extend(invite, {
             timingShow: true,
-            timing: timeDiff(invite.valid.timeFrom, timeNow()),
-            timingLabel: 'expires'
+            timing: timeDiff(timeNow(), invite.valid.timeFrom),
+            timingLabel: 'starts in',
+            status: 'soon'
           });
           console.log(invite);
           return invite;
