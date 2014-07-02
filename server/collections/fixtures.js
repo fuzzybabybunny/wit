@@ -324,7 +324,7 @@ if (Invitations.find().count() === 0) {
         timeTo: randomEndTime
       },
       views: 0,
-      saved: 0,
+      stashd: 0,
       updated_at: new Date(),
       created_at: new Date()
     });

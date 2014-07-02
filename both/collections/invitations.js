@@ -104,7 +104,7 @@ Invitations = new Meteor.Collection('invitations', {
         label: "Page views of the invite",
         optional: true
       },
-      saved: {
+      stash: {
         type: Number,
         label: "Users liking the invite",
         optional: true

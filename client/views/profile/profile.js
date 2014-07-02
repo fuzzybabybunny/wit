@@ -59,33 +59,33 @@ Template.Profile.helpers({
     //console.log(user.emails);
     return user;
    },
-   saves: function(){
-    var saves = Meteor.users.find({
+   stash: function(){
+    var stash = Meteor.users.find({
       _id: Meteor.userId()
     },{
-      fields: { 'profile.saved': 1 },
+      fields: { 'profile.stash': 1 },
       sort: { added_at: -1 }
     }).fetch();
 
-    saves =
+    stash =
       _.flatten(
         _.pluck(
-          _.pluck(saves, 'profile'),
-          "saved"),
+          _.pluck(stash, 'profile'),
+          "stash"),
         true
       );
 
-      _.each(saves, function(element, index, list){
+      _.each(stash, function(element, index, list){
         var inviteStatus = getInviteStatus(element.invite_id);
-        _.extend(saves[index], {status: inviteStatus});
+        _.extend(stash[index], {status: inviteStatus});
       });
 
-      saves = _.sortBy(saves, function(invite){
+      stash = _.sortBy(stash, function(invite){
         return parseInt(invite["status"]["endIndex"]);
       });
-      Session.set('stashCount', _.size(saves));
+      Session.set('stashCount', _.size(stash));
 
-    return saves;
+    return stash;
    },
    userFollowing: function(){
       var inviteCount;

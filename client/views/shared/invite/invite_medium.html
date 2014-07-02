@@ -1,0 +1,60 @@
+<template name="InviteMedium">
+<div class="invite-med-block">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="time-box">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="invite-time-type text-center">
+              - {{timingLabel}} -
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="invite-time text-center">
+              {{timing}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="invite-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="invite-title">
+              <a href="{{pathFor 'invite'}}">{{title.brief}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="invite-sub-title">
+                  <a href="{{pathFor 'venue.detail'}}">{{venue_name}}</a>, {{venue_area}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="invite-category">
+                  {{category}} / {{invite_type}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="row">
+              <div class="col-sm-12">
+                <button class="btn btn-default btn-sm"><li class="fa fa-plus-circle"></li>  Add to Stash</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>

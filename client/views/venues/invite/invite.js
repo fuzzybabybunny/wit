@@ -2,18 +2,18 @@
 /* Invite: Event Handlers and Helpers */
 /*****************************************************************************/
 Template.Invite.events({
-  'click .like': function(){
+  'click .stash': function(){
     Invitations.update({
       _id: this._id
     },{
-      $inc: {saved: 1}
+      $inc: {stash: 1}
     });
 
     Meteor.users.update({
       _id: Meteor.userId()
     },{
       $push: {
-        'profile.saved':
+        'profile.stash':
           {
             invite_id: this._id,
             invite_name: this.title.brief,
@@ -54,17 +54,17 @@ Template.Invite.helpers({
     console.log(daysValid);
     return daysValid;
   },
-  findSaved: function(){
-    return findSaved = Meteor.users.findOne({
+  findStash: function(){
+    return findStash = Meteor.users.findOne({
       _id: Meteor.userId(),
-      'profile.saved.invite_id': this._id
+      'profile.stash.invite_id': this._id
     });
   },
   pageViews: function(){
     return this.views;
   },
-  inviteSaved: function(){
-    return this.saved;
+  inviteStash: function(){
+    return this.stash;
   },
   inviteWidget: function(){
     return inviteWidget(this.valid, moment());

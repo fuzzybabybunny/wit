@@ -162,5 +162,62 @@ getInviteStatus = function(invite_id){
   return inviteWidget(invite.valid);
 };
 
+getInvites = function(type){
+  var invites;
+  if(type == 'active'){
+      invites = Invitations.find({
+        active: true,
+        'valid.days': { $in: [getDay()] },
+        'valid.endDate': { $gte: getDate(0)},
+        'valid.startDate': { $lt:  getDate(1)},
+        'valid.timeTo': { $gte: timeNow()},
+        'valid.timeFrom': { $lt: timeNow()}
+      },{
+        sort: { 'valid.timeTo':1 }
+
+      }).fetch();
+
+      console.log(invites);
+
+      var invitesExtended = _.map(invites, function(invite){
+          invite = _.extend(invite, {
+            timingShow: true,
+            timing: timeDiff(timeNow(), invite.valid.timeTo),
+            timingLabel: 'expires'
+          });
+          console.log(invite);
+          return invite;
+      });
+  } else if( type == 'soon'){
+    invites = Invitations.find({
+      active: true,
+      'valid.days': { $in: [getDay()] },
+      'valid.endDate': { $gte: getDate(0)},
+      'valid.startDate': { $lt:  getDate(1)},
+      'valid.timeTo': { $gte: timeNow()},
+      'valid.timeFrom': { $gte: timeNow()}
+    },{
+      sort: { 'valid.timeFrom':1 }
+    }).fetch();
+
+      console.log(invites);
+
+      var invitesExtended = _.map(invites, function(invite){
+          invite = _.extend(invite, {
+            timingShow: true,
+            timing: timeDiff(this.valid.timeFrom, timeNow()),
+            timingLabel: 'expires'
+          });
+          console.log(invite);
+          return invite;
+      });
+    }
+
+
+  console.log(invitesExtended);
+  return invitesExtended;
+
+
+}
 
 console.log(inviteValid(invite[1], moment()));

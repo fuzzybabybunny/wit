@@ -18,39 +18,18 @@
   </div>
 
     <div class="row showTab" id="activeNow" style="">
-      {{#each invitesActiveNow}}
-          <div class="col-sm-12">
-            <div class="palette-item invite {{selectedClass}}">
-            <a href="{{pathFor 'invite'}}">
-              <button class="btn btn-default btn-sm inviteBtn">View Offer</button>
-            </a>
-              <div class="infoBox">
-                <dl>
-                  <dt>Expiring</dt>
-                  <dd>{{inviteExpiringAt}}</dd>
-                </dl>
-              </div>
-              <div class="palette palette-wet-asphalt">
-                <span class="title"><a href="{{pathFor 'invite'}}">{{title.brief}}</a></span>
-                <br>
-                <span class="venue"><a href="{{pathFor 'venue.detail'}}">{{venue_name}}</a></span>,
-                <span class="subTitle">{{venue_area}}</span>
-              </div>
-            <dl class="panelDetails palette palette-midnight-blue" id="showPanel-{{_id}}" style="display: none">
-              <dt>
-                <span class="title">{{title.full}}</span>
-                <span class="invite-type">{{category}}</span>
-              </dt>
-              <dd>{{description}}</dd>
-              <dd>Starts: {{inviteStartsAt}}</dd>
-              <dd>Ends: {{inviteEndsAt}}</dd>
-            </dl>
-          </div>
-        </div>
-      {{/each}}
+
+    {{#each invitesActiveNow}}
+      {{> InviteMedium this}}
+    {{/each}}
+
     </div>
 
     <div class="row showTab" id="activeSoon" style="display: none">
+      {{#each invitesActiveSoon}}
+        {{> InviteMedium this}}
+      {{/each}}
+
         {{#each invitesActiveSoon}}
           <div class="col-sm-12">
             <div class="palette-item invite {{selectedClass}}">
