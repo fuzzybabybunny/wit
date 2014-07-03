@@ -72,7 +72,8 @@ if (Venues.find().count() === 0) {
         takes_reservations: true
     },
     stats: {
-        followers: 0
+        followers: 0,
+        views: 0
     },
     updated_at: new Date,
     created_at: new Date
@@ -150,7 +151,8 @@ if (Venues.find().count() === 0) {
         takes_reservations: true
     },
     stats: {
-        followers: 0
+        followers: 0,
+        views: 0
     },
     updated_at: new Date,
     created_at: new Date
@@ -232,7 +234,8 @@ if (Venues.find().count() === 0) {
         takes_reservations: true
     },
     stats: {
-        followers: 0
+        followers: 0,
+        views: 0
     },
     updated_at: new Date,
     created_at: new Date

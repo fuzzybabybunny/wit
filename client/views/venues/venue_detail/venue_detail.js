@@ -61,6 +61,11 @@ Template.VenueDetail.created = function () {
 };
 
 Template.VenueDetail.rendered = function () {
+      Venues.update({
+      _id: this._id
+    },{
+      $inc: { 'stats.views': 1 }
+    });
 };
 
 Template.VenueDetail.destroyed = function () {

@@ -67,23 +67,30 @@ Template.Profile.helpers({
       sort: { added_at: -1 }
     }).fetch();
 
-    stash =
-      _.flatten(
-        _.pluck(
-          _.pluck(stash, 'profile'),
-          "stash"),
-        true
-      );
+    console.log('count ' + _.size(stash[0].profile));
+    console.log(stash[0].profile);
 
-      _.each(stash, function(element, index, list){
-        var inviteStatus = getInviteStatus(element.invite_id);
-        _.extend(stash[index], {status: inviteStatus});
-      });
+      if (_.size(stash[0].profile) > 0){
+        stash =
+          _.flatten(
+            _.pluck(
+              _.pluck(stash, 'profile'),
+              "stash"),
+            true
+          );
 
-      stash = _.sortBy(stash, function(invite){
-        return parseInt(invite["status"]["endIndex"]);
-      });
-      Session.set('stashCount', _.size(stash));
+        _.each(stash, function(element, index, list){
+          var inviteStatus = getInviteStatus(element.invite_id);
+          _.extend(stash[index], {status: inviteStatus});
+        });
+
+        stash = _.sortBy(stash, function(invite){
+          return parseInt(invite["status"]["endIndex"]);
+        });
+        Session.set('stashCount', _.size(stash));
+    } else{
+      stash = null;
+    }
 
     return stash;
    },
@@ -116,7 +123,7 @@ Template.Profile.helpers({
    },
    stashCount: function(){
       var stashCount = Session.get('stashCount')? Session.get('stashCount') : 0;
-      return Session.get('stashCount');
+      return stashCount;
    }
 
 });

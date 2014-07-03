@@ -226,7 +226,34 @@ getInvites = function(type, venue_id){
           console.log(invite);
           return invite;
       });
-    }
+    } else if ( type == 'expired') {
+    queryFilter = {
+      active: true,
+      'valid.days': { $in: [getDay()] },
+      'valid.endDate': { $gte: getDate(0)},
+      'valid.startDate': { $lt:  getDate(1)},
+      'valid.timeTo': { $lte: timeNow()}
+    };
+
+    venue_id ? _.extend(queryFilter, {'venue_id': venue_id}) : '';
+
+    invites = Invitations.find(queryFilter, {
+      sort: { 'valid.timeTo': -1 }
+    }).fetch();
+
+      console.log(invites);
+
+      var invitesExtended = _.map(invites, function(invite){
+          invite = _.extend(invite, {
+            timingShow: true,
+            timing: '(' + timeDiff(invite.valid.timeTo, timeNow()) + ')',
+            timingLabel: 'expired',
+            status: 'expired'
+          });
+          console.log(invite);
+          return invite;
+      });
+    };
 
 
   console.log(invitesExtended);

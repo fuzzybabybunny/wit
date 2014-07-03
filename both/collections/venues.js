@@ -274,6 +274,13 @@ Venues = new Meteor.Collection('venues', {
         defaultValue: 0,
         optional: true
       },
+      "stats.views": {
+        type: Number,
+        label: "Page views",
+        max: 6,
+        defaultValue: 0,
+        optional: true
+      },
 
 //*********************
 //

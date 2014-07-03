@@ -60,16 +60,7 @@ Template.Activity.helpers({
       return getInvites('soon');
    },
    invitesExpired: function(){
-    return Invitations.find({
-      active: true,
-      'valid.days': { $in: [getDay()] },
-      'valid.endDate': { $gte: getDate(0)},
-      'valid.startDate': { $lt:  getDate(1)},
-      'valid.timeTo': { $lte: timeNow()}
-      //'valid.timeFrom': { $gte: timeNow()}
-    },{
-      sort: { 'valid.timeTo':-1 }
-    });
+      return getInvites('expired');
    },
    inviteStartsAt: function(){
     return moment({h: getTotalMins(this.valid.timeFrom) / 60}).format("h:mma");
