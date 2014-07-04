@@ -118,6 +118,10 @@ Router.map(function () {
     template: 'ViewInvitations'
   });
 
+  this.route('create.invitations', {
+    path: '/admin/invitations',
+    template: 'CreateInvitation'
+  });
 
 //////////////////////////////////////////////////////////////
 //
