@@ -32,6 +32,13 @@ Template.CreateInvitation.created = function () {
 };
 
 Template.CreateInvitation.rendered = function () {
+
+  $('head').append('<script type="text/javascript" src="/js/moment.js"></script>');
+  $('head').append('<script type="text/javascript" src="/js/daterangepicker.js"></script>');
+  $('head').append('<script type="text/javascript" src="/js/bootstrap.js"></script>');
+
+  $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' });
+
 };
 
 Template.CreateInvitation.destroyed = function () {

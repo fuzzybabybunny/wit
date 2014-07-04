@@ -23,6 +23,13 @@
             {{> afFieldLabel name="category"}}
             {{> afFieldInput name="category" options="allowed"}}
 
+            <div class="form-group">
+              <label for="reservationtime">Reservation dates:</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" name="reservation" id="reservationtime" class="col-xs-4"  />
+              </div>
+            </div>
+              
             {{> afQuickField name="valid.startDate" value=getToday}}
             {{> afQuickField name="valid.endDate" value=getToday}}
 
